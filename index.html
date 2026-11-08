@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shiva Rakesh S | Systems Architect & Product Founder</title>
+  <meta name="description" content="Portfolio and product incubator of Shiva Rakesh S — High-Throughput Systems Architect, Indie Product Builder & Tech Entrepreneur.">
+
+  <!-- Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            earth: {
+              void: '#0e0d0c',      /* Deep obsidian clay */
+              base: '#141210',      /* Warm raw stone */
+              card: '#1b1815',      /* Espresso slate */
+              surface: '#221e1a',   /* Warm card hover */
+              border: '#2e2721',    /* Raw limestone border */
+              borderLight: '#433930',
+              sand: '#e8e2d9',      /* Warm parchment text */
+              muted: '#b2a699',     /* Muted desert sand */
+            },
+            copper: {
+              DEFAULT: '#b87333',   /* Pure brushed copper */
+              light: '#d48b4d',     /* Burnished copper highlight */
+              glow: '#e59f6b',      /* Radiant molten copper */
+              dark: '#7e481c',      /* Aged oxidized bronze */
+              deep: '#3d220d',      /* Deep copper shadow */
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar - Earth & Copper */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #0e0d0c; }
+    ::-webkit-scrollbar-thumb { background: #2e2721; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #b87333; }
+
+    /* Tactile Earth Architectural Grid */
+    .earth-grid {
+      background-size: 36px 36px;
+      background-image: 
+        linear-gradient(to right, rgba(46, 39, 33, 0.35) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(46, 39, 33, 0.35) 1px, transparent 1px);
+    }
+
+    /* Brushed Copper Metallic Gradient & Surfaces */
+    .copper-gradient {
+      background: linear-gradient(135deg, #e59f6b 0%, #b87333 50%, #8a5024 100%);
+    }
+    .copper-gradient-subtle {
+      background: linear-gradient(135deg, rgba(229, 159, 107, 0.12) 0%, rgba(184, 115, 51, 0.06) 100%);
+    }
+    .copper-border-gradient {
+      border-image: linear-gradient(to right, #b87333, #e59f6b, #7e481c) 1;
+    }
+
+    .earth-glass {
+      background: rgba(22, 19, 17, 0.86);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid #2e2721;
+    }
+    .earth-glass:hover {
+      border-color: rgba(184, 115, 51, 0.55);
+      box-shadow: 0 10px 30px -10px rgba(184, 115, 51, 0.08);
+    }
+
+    /* Metallic Brushed Specular Effect */
+    .brushed-metal {
+      background: linear-gradient(145deg, #241f1b 0%, #171412 100%);
+      box-shadow: inset 0 1px 0 rgba(229, 159, 107, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.6);
+    }
+    .brushed-copper-btn {
+      background: linear-gradient(135deg, #d48b4d 0%, #b87333 45%, #965522 100%);
+      box-shadow: inset 0 1px 1px rgba(255, 235, 215, 0.4), 0 4px 14px rgba(184, 115, 51, 0.3);
+      color: #0e0d0c;
+    }
+    .brushed-copper-btn:hover {
+      background: linear-gradient(135deg, #e59f6b 0%, #c57e3c 45%, #a65f29 100%);
+      box-shadow: inset 0 1px 1px rgba(255, 245, 230, 0.6), 0 6px 20px rgba(184, 115, 51, 0.45);
+    }
+
+    .code-scroll {
+      scrollbar-width: thin;
+      scrollbar-color: #2e2721 transparent;
+    }
+
+    /* Ambient Warm Hearth Breathing */
+    @keyframes hearthPulse {
+      0%, 100% { opacity: 0.22; transform: scale(1); }
+      50% { opacity: 0.38; transform: scale(1.05); }
+    }
+    .hearth-glow {
+      animation: hearthPulse 9s ease-in-out infinite;
+    }
+  </style>
+</head>
+
+<body class="bg-earth-void text-earth-sand font-sans antialiased selection:bg-copper selection:text-earth-void earth-grid min-h-screen">
+
+  <!-- Ambient background copper hearth glows -->
+  <div class="fixed top-16 left-1/4 w-[420px] h-[420px] bg-copper/10 rounded-full blur-[130px] pointer-events-none hearth-glow"></div>
+  <div class="fixed top-96 right-1/4 w-[450px] h-[450px] bg-copper-dark/20 rounded-full blur-[140px] pointer-events-none hearth-glow" style="animation-delay: -4.5s;"></div>
+
+  <!-- ==================== HEADER / TOP NAVIGATION ==================== -->
+  <header class="fixed top-0 inset-x-0 z-50 earth-glass border-b border-earth-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand & Position -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="h-9 w-9 rounded-lg brushed-metal border border-copper/40 flex items-center justify-center font-mono font-bold text-copper-glow text-sm group-hover:border-copper transition-all shadow-inner">
+          SR
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-bold text-earth-sand tracking-tight">Shiva Rakesh S</span>
+            <span class="px-2 py-0.5 rounded-full bg-copper-deep/70 text-copper-glow font-mono text-[10px] border border-copper/30 font-medium">
+              Sprint Day 28 / 100
+            </span>
+          </div>
+          <p class="text-[11px] text-earth-muted font-mono">Systems Architect &amp; Product Founder</p>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-6 text-xs font-mono text-earth-muted">
+        <a href="#products" class="hover:text-copper-glow transition-colors">Products &amp; Labs</a>
+        <a href="#architecture" class="hover:text-copper-glow transition-colors">Systems Architecture</a>
+        <a href="#sprint" class="hover:text-copper-glow transition-colors">100-Day Sprint</a>
+        <a href="#arsenal" class="hover:text-copper-glow transition-colors">Tech Arsenal</a>
+        <a href="#economics" class="hover:text-copper-glow transition-colors">SaaS Economics</a>
+        <a href="#philosophy" class="hover:text-copper-glow transition-colors">Founder Manifesto</a>
+      </nav>
+
+      <!-- Action CTAs -->
+      <div class="flex items-center gap-3">
+        <button onclick="openDeployModal()" class="px-3.5 py-1.5 rounded-lg brushed-metal border border-earth-border hover:border-copper/50 text-xs font-mono text-earth-sand transition-all flex items-center gap-2">
+          <i class="fa-brands fa-github text-copper-glow"></i>
+          <span>Deploy Free</span>
+        </button>
+        <a href="#contact" class="px-4 py-1.5 rounded-lg brushed-copper-btn font-bold text-xs transition-all tracking-wide">
+          Connect
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="max-w-4xl">
+      
+      <!-- Live Status Badges -->
+      <div class="flex flex-wrap items-center gap-2.5 mb-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full brushed-metal border border-earth-border text-earth-sand text-xs font-mono">
+          <span class="h-2 w-2 rounded-full bg-copper-glow animate-ping"></span>
+          <span>100-Day Build &amp; Ship Sprint Active</span>
+        </div>
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full brushed-metal border border-earth-border text-earth-muted text-xs font-mono">
+          <i class="fa-solid fa-gauge-high text-copper-light text-[11px]"></i>
+          <span>Sub-5ms Latency Target</span>
+        </div>
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full brushed-metal border border-earth-border text-earth-muted text-xs font-mono">
+          <i class="fa-solid fa-compass-drafting text-copper text-[11px]"></i>
+          <span>Automate Once, Scale Forever</span>
+        </div>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-4xl sm:text-6xl font-extrabold text-earth-sand tracking-tight leading-[1.14]">
+        Building high-throughput engines, resilient distributed architectures, and <span class="text-transparent bg-clip-text copper-gradient font-black">profitable software.</span>
+      </h1>
+
+      <!-- Subtitle / Manifesto -->
+      <p class="mt-6 text-lg sm:text-xl text-earth-muted leading-relaxed font-sans max-w-3xl">
+        I am a software engineer and founder focused on high-concurrency payment engines, double-entry ledgers, and automated microservices. I build with the calm focus of a monk, the exploratory grit of an offline gamer, and a relentless commitment to creating sustainable, high-velocity cashflow companies.
+      </p>
+
+      <!-- CTA Row -->
+      <div class="mt-8 flex flex-wrap items-center gap-4 font-mono text-xs">
+        <a href="#products" class="px-5 py-3 rounded-lg brushed-copper-btn font-bold flex items-center gap-2 transition-all">
+          <i class="fa-solid fa-microchip text-sm"></i>
+          <span>Test Live Product Sandboxes</span>
+        </a>
+        <a href="#architecture" class="px-5 py-3 rounded-lg earth-glass hover:border-copper/60 text-earth-sand border border-earth-border flex items-center gap-2 transition-all">
+          <i class="fa-solid fa-network-wired text-copper-glow"></i>
+          <span>Explore Architecture Teardowns</span>
+        </a>
+        <a href="https://github.com/radagastroigi" target="_blank" class="px-4 py-3 rounded-lg earth-glass hover:border-copper/60 text-earth-muted hover:text-earth-sand border border-earth-border flex items-center gap-2 transition-all">
+          <i class="fa-brands fa-github text-base"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+
+      <!-- Live Core Metrics Strip -->
+      <div class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-xl earth-glass border border-earth-border">
+        <div>
+          <div class="text-[11px] font-mono text-earth-muted uppercase tracking-wider">Core Framework</div>
+          <div class="text-lg font-bold text-earth-sand font-mono mt-0.5">.NET 8 &amp; C#</div>
+          <div class="text-[10px] text-copper-glow font-mono">ASP.NET Core / Web API</div>
+        </div>
+        <div>
+          <div class="text-[11px] font-mono text-earth-muted uppercase tracking-wider">Distributed State</div>
+          <div class="text-lg font-bold text-earth-sand font-mono mt-0.5">PostgreSQL &amp; Redis</div>
+          <div class="text-[10px] text-copper-glow font-mono">Atomic Locks / SETNX</div>
+        </div>
+        <div>
+          <div class="text-[11px] font-mono text-earth-muted uppercase tracking-wider">Algorithmic Base</div>
+          <div class="text-lg font-bold text-earth-sand font-mono mt-0.5">142+ Solved</div>
+          <div class="text-[10px] text-copper-light font-mono">Sliding Window / Graphs</div>
+        </div>
+        <div>
+          <div class="text-[11px] font-mono text-earth-muted uppercase tracking-wider">Product Objective</div>
+          <div class="text-lg font-bold text-earth-sand font-mono mt-0.5">Indie Software Studio</div>
+          <div class="text-[10px] text-copper font-mono">Compounding Digital Assets</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 2: THE PRODUCT VAULT (LIVE INTERACTIVE SANDBOXES) ==================== -->
+  <section id="products" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-earth-border/70">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+      <div>
+        <div class="text-xs font-mono text-copper-light uppercase tracking-wider mb-2">Live In-Browser Simulators</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-earth-sand tracking-tight">The Product Sandbox Vault</h2>
+        <p class="text-earth-muted text-sm mt-2 max-w-2xl font-sans">
+          Runnable software engines demonstrating low-latency rate limiting, financial double-entry invariants, agentic orchestrators, and idempotent messaging pipelines.
+        </p>
+      </div>
+      <div class="mt-4 md:mt-0 font-mono text-xs text-earth-muted flex items-center">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-copper-glow mr-2 animate-pulse"></span>
+        Zero placeholders &bull; Interactive execution
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+      <!-- PRODUCT 1: FINCORE-AI VELOCITY SENTINEL -->
+      <div class="earth-glass rounded-2xl p-6 sm:p-7 border border-earth-border flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between pb-4 border-b border-earth-border">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-copper-deep/80 border border-copper/40 flex items-center justify-center text-copper-glow shadow-inner">
+                <i class="fa-solid fa-shield-halved text-lg"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-earth-sand tracking-tight">FinCore-AI &bull; Velocity Sentinel</h3>
+                <p class="text-xs font-mono text-earth-muted">Sliding-Window Deque Rate Limiter &amp; Fraud Barrier</p>
+              </div>
+            </div>
+            <span class="px-2.5 py-1 rounded brushed-metal text-copper-light font-mono text-[11px] border border-earth-border font-medium">
+              p99 &lt; 2.4ms
+            </span>
+          </div>
+
+          <p class="text-xs text-earth-sand mt-4 leading-relaxed font-sans">
+            High-throughput payment gateway protector designed to stop rapid card-testing fraud. Evaluates incoming transaction timestamps using an in-memory double-ended queue, pruning timestamps outside the 10-second sliding window without expensive DB roundtrips.
+          </p>
+
+          <!-- Interactive Simulator Box -->
+          <div class="mt-6 p-4 rounded-xl bg-earth-void border border-earth-border space-y-4">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <span class="text-earth-muted">Window: <strong class="text-earth-sand">10s</strong></span>
+              <span class="text-earth-muted">Limit: <strong class="text-earth-sand">5 req/window</strong></span>
+              <span class="text-earth-muted">Active Deque: <span id="fincoreDequeSize" class="text-copper-glow font-bold">0</span></span>
+            </div>
+
+            <!-- Saturation Progress Bar -->
+            <div>
+              <div class="flex justify-between text-[11px] font-mono text-earth-muted mb-1">
+                <span>Window Saturation</span>
+                <span id="fincoreSaturationText">0%</span>
+              </div>
+              <div class="w-full h-2 rounded-full bg-earth-card overflow-hidden border border-earth-border">
+                <div id="fincoreProgressBar" class="h-full copper-gradient transition-all duration-300" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <!-- Live Console Logs -->
+            <div class="h-28 overflow-y-auto font-mono text-[11px] p-2.5 rounded-lg bg-earth-base border border-earth-border code-scroll space-y-1 text-earth-sand" id="fincoreLogs">
+              <div class="text-earth-muted/60">// Standby. Fire single or burst payment transactions below...</div>
+            </div>
+
+            <!-- Controller Buttons -->
+            <div class="flex gap-2 font-mono text-xs pt-1">
+              <button onclick="firePaymentRequest(1)" class="flex-1 py-2 rounded-lg brushed-metal hover:border-copper/50 text-earth-sand border border-earth-border font-medium transition-colors flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-paper-plane text-copper-light text-[11px]"></i>
+                <span>Send 1 Req</span>
+              </button>
+              <button onclick="firePaymentRequest(5)" class="flex-1 py-2 rounded-lg bg-copper-deep/50 hover:bg-copper-deep text-copper-glow border border-copper/50 font-medium transition-colors flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-bolt text-copper-light text-[11px]"></i>
+                <span>Burst (5 Req)</span>
+              </button>
+              <button onclick="resetRateLimiter()" class="px-3 py-2 rounded-lg brushed-metal hover:border-copper/50 text-earth-muted hover:text-earth-sand border border-earth-border transition-colors">
+                <i class="fa-solid fa-rotate-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-4 border-t border-earth-border flex items-center justify-between text-[11px] font-mono text-earth-muted">
+          <span>Stack: C#, Redis Sorted Sets, ASP.NET Core</span>
+          <a href="#case-sliding-window" class="text-copper-light hover:text-copper-glow hover:underline">View Architectural Model &rarr;</a>
+        </div>
+      </div>
+
+      <!-- PRODUCT 2: QUESTLEDGER IMMUTABLE DOUBLE-ENTRY ENGINE -->
+      <div class="earth-glass rounded-2xl p-6 sm:p-7 border border-earth-border flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between pb-4 border-b border-earth-border">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-copper-deep/80 border border-copper/40 flex items-center justify-center text-copper-glow shadow-inner">
+                <i class="fa-solid fa-scale-balanced text-lg"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-earth-sand tracking-tight">QuestLedger &bull; Double-Entry Engine</h3>
+                <p class="text-xs font-mono text-earth-muted">Immutable Ledger with Optimistic Concurrency</p>
+              </div>
+            </div>
+            <span class="px-2.5 py-1 rounded brushed-metal text-copper-light font-mono text-[11px] border border-earth-border font-medium">
+              Zero Invariant Drift
+            </span>
+          </div>
+
+          <p class="text-xs text-earth-sand mt-4 leading-relaxed font-sans">
+            Enforces mathematical debit and credit equality (<span class="font-mono text-copper-glow">&Sigma; Debits = &Sigma; Credits</span>) across all financial transactions. Eliminates race conditions and double-spending through row-level version tokens (<span class="font-mono text-earth-sand">RowVersion</span>).
+          </p>
+
+          <!-- Interactive Ledger Box -->
+          <div class="mt-6 p-4 rounded-xl bg-earth-void border border-earth-border space-y-4">
+            
+            <!-- Balances Matrix -->
+            <div class="grid grid-cols-3 gap-2 text-center font-mono">
+              <div class="p-2 rounded bg-earth-card border border-earth-border">
+                <div class="text-[10px] text-earth-muted">User Wallet</div>
+                <div class="text-sm font-bold text-earth-sand mt-0.5">$<span id="userBalance">1,250.00</span></div>
+              </div>
+              <div class="p-2 rounded bg-earth-card border border-earth-border">
+                <div class="text-[10px] text-earth-muted">Escrow Vault</div>
+                <div class="text-sm font-bold text-copper-light mt-0.5">$<span id="escrowBalance">3,500.00</span></div>
+              </div>
+              <div class="p-2 rounded bg-earth-card border border-earth-border">
+                <div class="text-[10px] text-earth-muted">System Revenue</div>
+                <div class="text-sm font-bold text-copper-glow mt-0.5">$<span id="revenueBalance">450.00</span></div>
+              </div>
+            </div>
+
+            <!-- Ledger Action Input Row -->
+            <div class="flex gap-2">
+              <select id="ledgerAction" class="bg-earth-card border border-earth-border rounded-lg text-xs font-mono text-earth-sand px-2.5 py-2 outline-none focus:border-copper">
+                <option value="deposit">Deposit to Escrow ($100)</option>
+                <option value="payout">Escrow Release ($250)</option>
+                <option value="fee">Deduct Protocol Fee ($15)</option>
+              </select>
+              <button onclick="commitLedgerEntry()" class="flex-1 py-2 rounded-lg brushed-copper-btn font-mono font-bold text-xs transition-colors flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-lock text-xs"></i>
+                <span>Commit Atomic Tx</span>
+              </button>
+            </div>
+
+            <!-- Audit Trail Log -->
+            <div class="h-20 overflow-y-auto font-mono text-[11px] p-2 rounded-lg bg-earth-base border border-earth-border code-scroll space-y-1 text-earth-sand" id="ledgerLogs">
+              <div class="text-earth-muted/60">// Invariant Check: &Sigma; Debits &minus; &Sigma; Credits = $0.00 [VALID]</div>
+            </div>
+
+            <!-- Race Condition Simulation -->
+            <button onclick="simulateLedgerRace()" class="w-full py-1.5 rounded-lg brushed-metal hover:border-copper/50 border border-earth-border text-[11px] font-mono text-earth-muted hover:text-earth-sand transition-colors flex items-center justify-center gap-1.5">
+              <i class="fa-solid fa-arrows-split-up-and-left text-copper-glow"></i>
+              <span>Simulate Concurrent Race Condition (Double Spend Attempt)</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-4 border-t border-earth-border flex items-center justify-between text-[11px] font-mono text-earth-muted">
+          <span>Stack: EF Core, PostgreSQL Stored Procs, .NET 8</span>
+          <a href="#case-double-entry" class="text-copper-light hover:text-copper-glow hover:underline">View Invariant Proof &rarr;</a>
+        </div>
+      </div>
+
+      <!-- PRODUCT 3: FLOWSYNC / COMPANION (AGENTIC ORCHESTRATOR) -->
+      <div class="earth-glass rounded-2xl p-6 sm:p-7 border border-earth-border flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between pb-4 border-b border-earth-border">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-copper-deep/80 border border-copper/40 flex items-center justify-center text-copper-glow shadow-inner">
+                <i class="fa-solid fa-brain text-lg"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-earth-sand tracking-tight">FlowSync &bull; Autonomous Agent Mesh</h3>
+                <p class="text-xs font-mono text-earth-muted">Context Memory &amp; Task Pipeline Orchestration</p>
+              </div>
+            </div>
+            <span class="px-2.5 py-1 rounded brushed-metal text-copper-light font-mono text-[11px] border border-earth-border font-medium">
+              Human-In-The-Loop
+            </span>
+          </div>
+
+          <p class="text-xs text-earth-sand mt-4 leading-relaxed font-sans">
+            Deterministic orchestration platform for autonomous LLM agents. Decomposes enterprise tasks into deterministic state machines: recursive planning, isolated execution, semantic validation, and human sign-off checkpoints.
+          </p>
+
+          <!-- Interactive Agent Box -->
+          <div class="mt-6 p-4 rounded-xl bg-earth-void border border-earth-border space-y-4">
+            
+            <!-- Agent State Visualizer -->
+            <div class="grid grid-cols-4 gap-1.5 text-center font-mono text-[10px]">
+              <div id="step-plan" class="p-2 rounded bg-earth-card border border-earth-border text-earth-muted">
+                1. Planner
+              </div>
+              <div id="step-code" class="p-2 rounded bg-earth-card border border-earth-border text-earth-muted">
+                2. Execution
+              </div>
+              <div id="step-eval" class="p-2 rounded bg-earth-card border border-earth-border text-earth-muted">
+                3. Validator
+              </div>
+              <div id="step-gate" class="p-2 rounded bg-earth-card border border-earth-border text-earth-muted">
+                4. Sign-off
+              </div>
+            </div>
+
+            <!-- Agent Run Status Output -->
+            <div class="p-3 rounded-lg bg-earth-base border border-earth-border min-h-[70px] flex items-center font-mono text-xs text-earth-sand" id="agentStatusBox">
+              "Idle. Select an autonomous task below to observe multi-agent orchestration..."
+            </div>
+
+            <!-- Controls -->
+            <div class="flex gap-2 font-mono text-xs">
+              <button onclick="runAgentWorkflow('audit')" class="flex-1 py-2 rounded-lg brushed-metal hover:border-copper/50 text-earth-sand border border-earth-border font-medium transition-colors">
+                Run DB Schema Audit
+              </button>
+              <button onclick="runAgentWorkflow('codegen')" class="flex-1 py-2 rounded-lg bg-copper-deep/50 hover:bg-copper-deep text-copper-glow border border-copper/50 font-medium transition-colors">
+                Scaffold gRPC Service
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-4 border-t border-earth-border flex items-center justify-between text-[11px] font-mono text-earth-muted">
+          <span>Stack: Python, Semantic Kernel, FastEmbed, Redis</span>
+          <span class="text-copper-glow">Autonomous State Machines</span>
+        </div>
+      </div>
+
+      <!-- PRODUCT 4: STREAMMESH IDEMPOTENT PIPELINE -->
+      <div class="earth-glass rounded-2xl p-6 sm:p-7 border border-earth-border flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between pb-4 border-b border-earth-border">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-copper-deep/80 border border-copper/40 flex items-center justify-center text-copper-glow shadow-inner">
+                <i class="fa-solid fa-arrows-spin text-lg"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-earth-sand tracking-tight">StreamMesh &bull; Idempotent Pipeline</h3>
+                <p class="text-xs font-mono text-earth-muted">Distributed Deduplication with Redis SETNX</p>
+              </div>
+            </div>
+            <span class="px-2.5 py-1 rounded brushed-metal text-copper-light font-mono text-[11px] border border-earth-border font-medium">
+              Zero Duplicates
+            </span>
+          </div>
+
+          <p class="text-xs text-earth-sand mt-4 leading-relaxed font-sans">
+            Guarantees exactly-once message processing across unpredictable network consumer retries. Employs atomic Redis distributed locks and key TTLs to suppress and log duplicate webhook payloads.
+          </p>
+
+          <!-- Interactive Deduplication Box -->
+          <div class="mt-6 p-4 rounded-xl bg-earth-void border border-earth-border space-y-4">
+            
+            <div class="flex justify-between items-center text-xs font-mono">
+              <span class="text-earth-muted">Network Retries Intercepted:</span>
+              <span class="text-copper-glow font-bold" id="retryCounter">0 Dupes Caught</span>
+            </div>
+
+            <!-- Deduplication Console -->
+            <div class="h-28 overflow-y-auto font-mono text-[11px] p-2.5 rounded-lg bg-earth-base border border-earth-border code-scroll space-y-1 text-earth-sand" id="meshLogs">
+              <div class="text-earth-muted/60">// Event bus standby. Trigger unique events or duplicate bursts...</div>
+            </div>
+
+            <div class="flex gap-2 font-mono text-xs">
+              <button onclick="publishEvent(false)" class="flex-1 py-2 rounded-lg brushed-metal hover:border-copper/50 text-earth-sand border border-earth-border font-medium transition-colors">
+                Publish Unique Event
+              </button>
+              <button onclick="publishEvent(true)" class="flex-1 py-2 rounded-lg bg-copper-deep/50 hover:bg-copper-deep text-copper-glow border border-copper/50 font-medium transition-colors">
+                Simulate 3x Retry Burst
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-4 border-t border-earth-border flex items-center justify-between text-[11px] font-mono text-earth-muted">
+          <span>Stack: Apache Kafka, Redis Distributed Lock, .NET BackgroundService</span>
+          <a href="#case-distributed-lock" class="text-copper-light hover:text-copper-glow hover:underline">View Lock Architecture &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 3: ARCHITECTURE CASE STUDIES & PATTERNS ==================== -->
+  <section id="architecture" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-earth-border/70">
+    <div class="max-w-3xl mb-12">
+      <div class="text-xs font-mono text-copper-light uppercase tracking-wider mb-2">Technical Rigor &amp; System Design</div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-earth-sand tracking-tight">Enterprise Architecture &amp; Case Studies</h2>
+      <p class="text-earth-muted text-sm mt-2 leading-relaxed font-sans">
+        Engineering breakdowns of real-world distributed architectures: sub-millisecond throttling, zero-drift double-entry balance invariants, and distributed locking with Lua scripts.
+      </p>
+    </div>
+
+    <div class="space-y-8">
+      
+      <!-- CASE 1: SLIDING WINDOW VS TOKEN BUCKET -->
+      <div id="case-sliding-window" class="earth-glass rounded-2xl p-6 sm:p-8 border border-earth-border">
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-earth-border">
+          <div>
+            <span class="px-2.5 py-0.5 rounded bg-copper-deep/60 text-copper-glow font-mono text-xs border border-copper/30 font-medium">Case Study 01</span>
+            <h3 class="text-xl font-bold text-earth-sand mt-1">Sliding-Window Deque vs. Token Bucket in High-Burst Gateways</h3>
+          </div>
+          <div class="flex items-center gap-4 text-xs font-mono text-earth-muted">
+            <span>Throughput: <strong class="text-earth-sand">85,000 req/sec</strong></span>
+            <span>Complexity: <strong class="text-copper-light">O(log N)</strong></span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-6">
+          <div class="lg:col-span-7 space-y-4 text-xs sm:text-sm text-earth-sand leading-relaxed font-sans">
+            <p>
+              Fixed-window counters permit 2x traffic bursts across window boundaries (e.g., 100 requests at 00:59 and another 100 at 01:00 results in 200 requests within two seconds). While Token Bucket regulates long-term burst rates, it allows micro-bursts that degrade downstream payment providers.
+            </p>
+            <p>
+              <strong>The Architecture:</strong> We implemented an in-memory double-ended queue (deque) using Redis Sorted Sets with epoch millisecond scores:
+            </p>
+            <ul class="list-disc pl-5 space-y-1 font-mono text-xs text-earth-muted">
+              <li>Atomic eviction: <code class="text-copper-glow">ZREMRANGEBYSCORE key 0 (now - window)</code></li>
+              <li>Atomic insertion &amp; count: <code class="text-copper-glow">ZADD key now uuid</code> followed by <code class="text-copper-glow">ZCARD key</code></li>
+              <li>Pipelines executed under 2.1ms p99 latency via connection multiplexing.</li>
+            </ul>
+          </div>
+
+          <div class="lg:col-span-5 bg-earth-void p-4 rounded-xl border border-earth-border font-mono text-[11px] text-earth-sand">
+            <div class="text-copper-light/70 mb-2">// Architectural Execution Flow</div>
+            <pre class="overflow-x-auto text-copper-glow">
+Client HTTP Req
+       │
+       ▼
+[Edge Gateway] ──&gt; Extract Client Identifier (API Key/IP)
+       │
+       ▼
+[Redis Multi] ───&gt; ZREMRANGEBYSCORE (now - 10s)
+       │      ───&gt; ZADD (now, request_id)
+       │      ───&gt; ZCARD (active_count)
+       ▼
+  Count &gt; Limit?
+  ├── YES ──&gt; HTTP 429 [Retry-After: Delta]
+  └── NO  ──&gt; Forward to Downstream .NET 8 Pod
+            </pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- CASE 2: DOUBLE-ENTRY IMMUTABLE LEDGER -->
+      <div id="case-double-entry" class="earth-glass rounded-2xl p-6 sm:p-8 border border-earth-border">
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-earth-border">
+          <div>
+            <span class="px-2.5 py-0.5 rounded bg-copper-deep/60 text-copper-glow font-mono text-xs border border-copper/30 font-medium">Case Study 02</span>
+            <h3 class="text-xl font-bold text-earth-sand mt-1">Zero-Drift Financial Ledgers: Enforcing Debit/Credit Invariants</h3>
+          </div>
+          <div class="flex items-center gap-4 text-xs font-mono text-earth-muted">
+            <span>Integrity: <strong class="text-earth-sand">ACID Strict</strong></span>
+            <span>Concurrency: <strong class="text-copper-light">Optimistic Versioning</strong></span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-6">
+          <div class="lg:col-span-7 space-y-4 text-xs sm:text-sm text-earth-sand leading-relaxed font-sans">
+            <p>
+              In digital economies and fintech platforms, mutating account balances directly in place via <code class="font-mono text-copper-light">UPDATE accounts SET balance = balance - 100</code> causes catastrophic reconciliation errors under concurrent transactions and network dropouts.
+            </p>
+            <p>
+              <strong>The Immutable Solution:</strong>
+            </p>
+            <ul class="list-disc pl-5 space-y-1 font-mono text-xs text-earth-muted">
+              <li><strong>Append-Only Journals:</strong> Account balances are never overwritten; they are materialized from immutable ledger entry postings.</li>
+              <li><strong>Mathematical Invariant:</strong> Every transaction encapsulates an array of balance shifts where <span class="text-copper-glow">&Sigma; Debits + &Sigma; Credits = 0</span>.</li>
+              <li><strong>Optimistic Concurrency Control (OCC):</strong> Uses row versioning (<code class="text-copper-light">RowVersion</code>) to reject conflicting simultaneous writes with an immediate retry policy.</li>
+            </ul>
+          </div>
+
+          <div class="lg:col-span-5 bg-earth-void p-4 rounded-xl border border-earth-border font-mono text-[11px] text-earth-sand">
+            <div class="text-copper-light/70 mb-2">// Invariant Constraint Verification</div>
+            <pre class="overflow-x-auto text-copper-light">
+BEGIN TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+
+INSERT INTO ledger_journal (tx_id, timestamp, note)
+VALUES ('tx_981', NOW(), 'Escrow Settlement');
+
+-- Dual Entry Invariant
+INSERT INTO ledger_postings (account, debit, credit)
+VALUES 
+  ('acc_escrow',  250.00,   0.00),
+  ('acc_user_4',    0.00, 250.00);
+
+-- DB Trigger Invariant Check:
+-- IF (SUM(debit) != SUM(credit)) ROLLBACK;
+
+COMMIT;
+            </pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- CASE 3: DISTRIBUTED LOCKS & REDIS SETNX -->
+      <div id="case-distributed-lock" class="earth-glass rounded-2xl p-6 sm:p-8 border border-earth-border">
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-earth-border">
+          <div>
+            <span class="px-2.5 py-0.5 rounded bg-copper-deep/60 text-copper-glow font-mono text-xs border border-copper/30 font-medium">Case Study 03</span>
+            <h3 class="text-xl font-bold text-earth-sand mt-1">Distributed Idempotency &amp; Split-Brain Protection with Redis SETNX</h3>
+          </div>
+          <div class="flex items-center gap-4 text-xs font-mono text-earth-muted">
+            <span>Lock TTL: <strong class="text-earth-sand">1500ms + Auto-renewal</strong></span>
+            <span>Safety: <strong class="text-copper-light">Random Nonce Validation</strong></span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-6">
+          <div class="lg:col-span-7 space-y-4 text-xs sm:text-sm text-earth-sand leading-relaxed font-sans">
+            <p>
+              When distributed consumers read from message brokers like Apache Kafka, network blips or long GC pauses can cause broker partitions to rebalance. Consumers might process a duplicate message while the previous worker is still finalizing its write.
+            </p>
+            <p>
+              <strong>The Mitigation Protocol:</strong>
+            </p>
+            <ul class="list-disc pl-5 space-y-1 font-mono text-xs text-earth-muted">
+              <li>Atomic distributed acquisition using <code class="text-copper-glow">SET resource_key random_nonce NX PX 1500</code>.</li>
+              <li>Only the consumer holding the valid <code class="text-copper-glow">random_nonce</code> can release the lock, verified via an atomic Lua script:
+                <code class="text-copper-glow">if redis.call("get", KEYS[1]) == ARGV[1] then return redis.call("del", KEYS[1]) else return 0 end</code>.
+              </li>
+              <li>Eliminates lock-stealing race conditions entirely across distributed service replicas.</li>
+            </ul>
+          </div>
+
+          <div class="lg:col-span-5 bg-earth-void p-4 rounded-xl border border-earth-border font-mono text-[11px] text-earth-sand">
+            <div class="text-copper-light/70 mb-2">// Atomic Lock Release (Lua)</div>
+            <pre class="overflow-x-auto text-copper-glow">
+-- Distributed Lock Release Script
+if redis.call('get', KEYS[1]) == ARGV[1] then
+    return redis.call('del', KEYS[1])
+else
+    -- Lock expired or held by another node
+    return 0
+end
+            </pre>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 4: 100-DAY BUILD & SHIP SPRINT ROADMAP ==================== -->
+  <section id="sprint" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-earth-border/70">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+      <div>
+        <div class="text-xs font-mono text-copper-light uppercase tracking-wider mb-2">Discipline &amp; Execution Cadence</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-earth-sand tracking-tight">The 100-Day Build &amp; Ship Sprint</h2>
+        <p class="text-earth-muted text-sm mt-2 max-w-2xl font-sans">
+          A disciplined, measurable roadmap combining deep algorithmic mastery (DSA), core enterprise systems engineering (.NET 8, PostgreSQL, Redis), and shipping profitable indie SaaS products.
+        </p>
+      </div>
+      <div class="mt-4 md:mt-0 flex gap-2 font-mono text-xs">
+        <button onclick="filterSprint('all')" id="sprint-all" class="px-3 py-1.5 rounded-lg brushed-metal border border-copper text-copper-glow font-medium">All Phases</button>
+        <button onclick="filterSprint('active')" id="sprint-active" class="px-3 py-1.5 rounded-lg brushed-metal border border-earth-border text-earth-muted hover:text-earth-sand">Active Only</button>
+      </div>
+    </div>
+
+    <!-- Sprint Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="sprintGrid">
+      
+      <!-- Sprint 1: Days 1-25 -->
+      <div class="sprint-card earth-glass rounded-xl p-5 border border-earth-border flex flex-col justify-between" data-status="complete">
+        <div>
+          <div class="flex items-center justify-between pb-3 border-b border-earth-border">
+            <span class="text-xs font-mono text-copper-light font-bold">DAYS 01 &minus; 25</span>
+            <span class="px-2 py-0.5 rounded bg-copper-deep/50 text-copper-glow text-[10px] font-mono border border-copper/30">COMPLETED</span>
+          </div>
+          <h3 class="text-base font-bold text-earth-sand mt-3">Core Engines &amp; Algorithmic Base</h3>
+          <p class="text-xs text-earth-muted mt-2 font-sans">
+            75+ LeetCode problems (Sliding Window, Two Pointers, Monotonic Stacks, Binary Search). .NET 8 Web API performance benchmarks, memory allocations, and Span&lt;T&gt; optimizations.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-earth-border text-[11px] font-mono text-earth-muted">
+          Metric: <strong class="text-copper-glow">Zero GC allocation paths in critical routes</strong>
+        </div>
+      </div>
+
+      <!-- Sprint 2: Days 26-50 (ACTIVE) -->
+      <div class="sprint-card earth-glass rounded-xl p-5 border-2 border-copper/70 bg-earth-card/80 flex flex-col justify-between shadow-lg shadow-copper/10" data-status="active">
+        <div>
+          <div class="flex items-center justify-between pb-3 border-b border-earth-border">
+            <span class="text-xs font-mono text-copper-glow font-bold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-copper-glow animate-ping"></span>
+              DAYS 26 &minus; 50
+            </span>
+            <span class="px-2 py-0.5 rounded bg-copper-deep text-copper-glow text-[10px] font-mono border border-copper/50 font-bold">CURRENT PHASE</span>
+          </div>
+          <h3 class="text-base font-bold text-earth-sand mt-3">Fintech Engines &amp; Distributed Caching</h3>
+          <p class="text-xs text-earth-sand mt-2 font-sans">
+            FinCore-AI sliding-window fraud sentinel, QuestLedger double-entry ledger, Redis distributed locks, EF Core query execution plan tuning, and automated deployment pipelines.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-earth-border text-[11px] font-mono text-copper-glow">
+          Metric: <strong>Current Day 28: Ledger Invariant Validation Complete</strong>
+        </div>
+      </div>
+
+      <!-- Sprint 3: Days 51-75 -->
+      <div class="sprint-card earth-glass rounded-xl p-5 border border-earth-border flex flex-col justify-between opacity-80" data-status="upcoming">
+        <div>
+          <div class="flex items-center justify-between pb-3 border-b border-earth-border">
+            <span class="text-xs font-mono text-earth-muted font-bold">DAYS 51 &minus; 75</span>
+            <span class="px-2 py-0.5 rounded bg-earth-base text-earth-muted text-[10px] font-mono border border-earth-border">UPCOMING</span>
+          </div>
+          <h3 class="text-base font-bold text-earth-sand mt-3">Autonomous Agents &amp; Micro-SaaS MVPs</h3>
+          <p class="text-xs text-earth-muted mt-2 font-sans">
+            FlowSync agentic state machines, LLM context caching, human-in-the-loop task runners, Stripe recurring payment webhooks, and multi-tenant database isolation.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-earth-border text-[11px] font-mono text-earth-muted">
+          Target: <strong class="text-earth-sand">First $100 MRR from automated dev tooling</strong>
+        </div>
+      </div>
+
+      <!-- Sprint 4: Days 76-100 -->
+      <div class="sprint-card earth-glass rounded-xl p-5 border border-earth-border flex flex-col justify-between opacity-80" data-status="upcoming">
+        <div>
+          <div class="flex items-center justify-between pb-3 border-b border-earth-border">
+            <span class="text-xs font-mono text-earth-muted font-bold">DAYS 76 &minus; 100</span>
+            <span class="px-2 py-0.5 rounded bg-earth-base text-earth-muted text-[10px] font-mono border border-earth-border">UPCOMING</span>
+          </div>
+          <h3 class="text-base font-bold text-earth-sand mt-3">Flagship Product Launch &amp; Scaling</h3>
+          <p class="text-xs text-earth-muted mt-2 font-sans">
+            Public launch on HackerNews &amp; ProductHunt, Kubernetes cluster orchestration, load testing under 25,000 concurrent virtual users, and establishing permanent compounding revenue.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-earth-border text-[11px] font-mono text-earth-muted">
+          Target: <strong class="text-copper-glow">Self-sustaining profitable software studio</strong>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 5: TECHNICAL ARSENAL & CONCEPTUAL MASTERY ==================== -->
+  <section id="arsenal" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-earth-border/70">
+    <div class="max-w-3xl mb-12">
+      <div class="text-xs font-mono text-copper-light uppercase tracking-wider mb-2">Technical Proficiency</div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-earth-sand tracking-tight">Technical Arsenal &amp; Systems Matrix</h2>
+      <p class="text-earth-muted text-sm mt-2 font-sans">
+        Technologies and paradigms deployed in production for reliability, high concurrency, and long-term maintainability.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <!-- Group 1 -->
+      <div class="earth-glass rounded-xl p-5 border border-earth-border space-y-3">
+        <div class="flex items-center gap-2 text-copper-glow text-sm font-bold font-mono">
+          <i class="fa-solid fa-code"></i>
+          <span>Backend &amp; Languages</span>
+        </div>
+        <div class="space-y-2 text-xs font-mono text-earth-sand">
+          <div class="p-2 rounded bg-earth-void border border-earth-border flex justify-between">
+            <span>C# / .NET 8</span>
+            <span class="text-copper-glow font-bold">Primary</span>
+          </div>
+          <div class="p-2 rounded bg-earth-void border border-earth-border flex justify-between">
+            <span>ASP.NET Core / Web API</span>
+            <span class="text-copper-light">Advanced</span>
+          </div>
+          <div class="p-2 rounded bg-earth-void border border-earth-border flex justify-between">
+            <span>Python</span>
+            <span class="text-earth-muted">Async / AI</span>
+          </div>
+          <div class="p-2 rounded bg-earth-void border border-earth-border flex justify-between">
+            <span>TypeScript / SQL</span>
+            <span class="text-earth-muted">Full-Stack</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Group 2 -->
+      <div class="earth-glass rounded-xl p-5 border border-earth-border space-y-3">
+        <div class="flex items-center gap-2 text-copper-light text-sm font-bold font-mono">
+          <i class="fa-solid fa-database"></i>
+          <span>Storage &amp; Messaging</span>
+        </div>
+        <div class="space-y-2 text-xs font-mono text-earth-sand">
+          <div class="p-2 rounded bg-earth-void border border-earth-border flex justify-between">
+            <span>PostgreSQL</span>
+            <span class="text-copper-light">Indexing / EXPLAIN</span>
+          </div>
+          <div class="p-2 rounded bg-earth-void border border-earth-border flex justify-between">
+            <span>Redis</span>
+            <span class="text-copper-glow font-bold">Distributed Locks</span>
+          </div>
+          <div class="p-2 rounded bg-earth-void border border-earth-border flex justify-between">
+            <span>MS SQL Server</span>
+            <span class="text-earth-muted">Stored Procs / T-SQL</span>
+          </div>
+          <div class="p-2 rounded bg-earth-void border border-earth-border flex justify-between">
+            <span>Apache Kafka</span>
+            <span class="text-earth-muted">Event Streams</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Group 3 -->
+      <div class="earth-glass rounded-xl p-5 border border-earth-border space-y-3">
+        <div class="flex items-center gap-2 text-copper text-sm font-bold font-mono">
+          <i class="fa-solid fa-server"></i>
+          <span>Architecture &amp; Cloud</span>
+        </div>
+        <div class="space-y-2 text-xs font-mono text-earth-sand">
+          <div class="p-2 rounded bg-earth-void border border-earth-border flex justify-between">
+            <span>Distributed Microservices</span>
+            <span class="text-copper-glow">gRPC / REST</span>
+          </div>
+          <div class="p-2 rounded bg-earth-void border border-earth-border flex justify-between">
+            <span>Docker &amp; Containers</span>
+            <span class="text-earth-muted">Multi-stage builds</span>
+          </div>
+          <div class="p-2 rounded bg-earth-void border border-earth-border flex justify-between">
+            <span>CI/CD Automation</span>
+            <span class="text-earth-muted">GitHub Actions</span>
+          </div>
+          <div class="p-2 rounded bg-earth-void border border-earth-border flex justify-between">
+            <span>IIS &amp; Linux Ops</span>
+            <span class="text-earth-muted">Production Deploy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Group 4 -->
+      <div class="earth-glass rounded-xl p-5 border border-earth-border space-y-3">
+        <div class="flex items-center gap-2 text-copper-glow text-sm font-bold font-mono">
+          <i class="fa-solid fa-microchip"></i>
+          <span>Patterns &amp; Foundations</span>
+        </div>
+        <div class="space-y-2 text-xs font-mono text-earth-sand">
+          <div class="p-2 rounded bg-earth-void border border-earth-border flex justify-between">
+            <span>Double-Entry Ledgers</span>
+            <span class="text-copper-glow font-bold">ACID Strict</span>
+          </div>
+          <div class="p-2 rounded bg-earth-void border border-earth-border flex justify-between">
+            <span>Rate Limiting Deques</span>
+            <span class="text-copper-light">Sliding Window</span>
+          </div>
+          <div class="p-2 rounded bg-earth-void border border-earth-border flex justify-between">
+            <span>B.E. Computer Science</span>
+            <span class="text-earth-muted">8.7 CGPA</span>
+          </div>
+          <div class="p-2 rounded bg-earth-void border border-earth-border flex justify-between">
+            <span>Idempotent Retries</span>
+            <span class="text-earth-muted">Zero Duplicates</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 6: SAAS UNIT ECONOMICS CALCULATOR ==================== -->
+  <section id="economics" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-earth-border/70">
+    <div class="max-w-3xl mb-12">
+      <div class="text-xs font-mono text-copper-light uppercase tracking-wider mb-2">Product Founder Finance</div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-earth-sand tracking-tight">Micro-SaaS Unit Economics &amp; CLI</h2>
+      <p class="text-earth-muted text-sm mt-2 font-sans">
+        Practical instruments for projecting recurring cashflow, pricing models, and operational margins.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- WIDGET A: MICRO-SAAS ROI CALCULATOR (6 cols) -->
+      <div class="lg:col-span-6 earth-glass rounded-2xl p-6 border border-earth-border space-y-6">
+        <div class="flex items-center justify-between pb-3 border-b border-earth-border">
+          <div class="flex items-center gap-2 font-mono text-xs text-copper-glow font-bold">
+            <i class="fa-solid fa-calculator"></i>
+            <span>Micro-SaaS Cashflow Engine</span>
+          </div>
+          <span class="text-[11px] font-mono text-earth-muted">Compound Projections</span>
+        </div>
+
+        <div class="space-y-4 font-mono text-xs">
+          <div>
+            <div class="flex justify-between text-earth-muted mb-1">
+              <span>Monthly Subscription Price ($/mo):</span>
+              <span id="priceDisplay" class="text-earth-sand font-bold">$29</span>
+            </div>
+            <input type="range" id="priceRange" min="9" max="199" value="29" step="5" class="w-full accent-copper" oninput="calculateSaaSMetrics()">
+          </div>
+
+          <div>
+            <div class="flex justify-between text-earth-muted mb-1">
+              <span>Active Paying Customers:</span>
+              <span id="usersDisplay" class="text-earth-sand font-bold">150</span>
+            </div>
+            <input type="range" id="usersRange" min="10" max="1500" value="150" step="10" class="w-full accent-copper" oninput="calculateSaaSMetrics()">
+          </div>
+
+          <div>
+            <div class="flex justify-between text-earth-muted mb-1">
+              <span>Monthly Cloud Hosting Cost:</span>
+              <span id="costDisplay" class="text-earth-sand font-bold">$60</span>
+            </div>
+            <input type="range" id="costRange" min="20" max="500" value="60" step="10" class="w-full accent-copper" oninput="calculateSaaSMetrics()">
+          </div>
+        </div>
+
+        <!-- Output Cards -->
+        <div class="grid grid-cols-3 gap-3 pt-2 text-center font-mono">
+          <div class="p-3 rounded-xl bg-earth-void border border-earth-border">
+            <div class="text-[10px] text-earth-muted">Monthly MRR</div>
+            <div class="text-base font-bold text-copper-glow mt-0.5" id="mrrOutput">$4,350</div>
+          </div>
+          <div class="p-3 rounded-xl bg-earth-void border border-earth-border">
+            <div class="text-[10px] text-earth-muted">Annual ARR</div>
+            <div class="text-base font-bold text-earth-sand mt-0.5" id="arrOutput">$52,200</div>
+          </div>
+          <div class="p-3 rounded-xl bg-earth-void border border-earth-border">
+            <div class="text-[10px] text-earth-muted">Net Profit Margin</div>
+            <div class="text-base font-bold text-copper-light mt-0.5" id="marginOutput">98.6%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WIDGET B: FOUNDER PRINCIPLE TERMINAL (6 cols) -->
+      <div class="lg:col-span-6 earth-glass rounded-2xl p-6 border border-earth-border space-y-4">
+        <div class="flex items-center justify-between pb-3 border-b border-earth-border">
+          <div class="flex items-center gap-2 font-mono text-xs text-copper-light font-bold">
+            <i class="fa-solid fa-terminal"></i>
+            <span>Founder CLI Terminal</span>
+          </div>
+          <span class="text-[11px] font-mono text-earth-muted">v2.5.0 &bull; Earth &amp; Copper</span>
+        </div>
+
+        <div class="bg-earth-void p-3 rounded-xl border border-earth-border h-48 overflow-y-auto font-mono text-xs space-y-2 code-scroll text-earth-sand" id="terminalOutput">
+          <div class="text-earth-muted/60">// Type a command below: 'musashi', 'automate', 'status', 'goals', 'stack'</div>
+        </div>
+
+        <form id="terminalForm" class="flex gap-2 font-mono text-xs" onsubmit="handleTerminalSubmit(event)">
+          <input type="text" id="terminalInput" placeholder="run command (e.g. automate, musashi)..." class="flex-1 bg-earth-void border border-earth-border rounded-lg px-3 py-2 text-earth-sand outline-none focus:border-copper">
+          <button type="submit" class="px-4 py-2 rounded-lg brushed-metal hover:border-copper/50 text-earth-sand border border-earth-border font-medium">
+            Run
+          </button>
+        </form>
+
+        <div class="flex flex-wrap gap-1.5 text-[11px] font-mono">
+          <button onclick="executeCommand('automate')" class="px-2 py-0.5 rounded bg-earth-void border border-earth-border text-earth-muted hover:text-copper-glow">automate</button>
+          <button onclick="executeCommand('musashi')" class="px-2 py-0.5 rounded bg-earth-void border border-earth-border text-earth-muted hover:text-copper-glow">musashi</button>
+          <button onclick="executeCommand('goals')" class="px-2 py-0.5 rounded bg-earth-void border border-earth-border text-earth-muted hover:text-copper-glow">goals</button>
+          <button onclick="executeCommand('stack')" class="px-2 py-0.5 rounded bg-earth-void border border-earth-border text-earth-muted hover:text-copper-glow">stack</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 7: THE FOUNDER'S OPERATING PHILOSOPHY ==================== -->
+  <section id="philosophy" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-earth-border/70">
+    <div class="max-w-3xl mb-12">
+      <div class="text-xs font-mono text-copper-light uppercase tracking-wider mb-2">Mindset &amp; Origins</div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-earth-sand tracking-tight">Operating Principles &amp; Founder DNA</h2>
+      <p class="text-earth-muted text-sm mt-2 font-sans">
+        The internal compass that drives technical execution, business clarity, and lifelong curiosity.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- Pillar 1 -->
+      <div class="earth-glass rounded-2xl p-6 border border-earth-border flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-copper-deep/80 border border-copper/40 flex items-center justify-center text-copper-glow shadow-inner">
+            <i class="fa-solid fa-mountain text-lg"></i>
+          </div>
+          <h3 class="text-lg font-bold text-earth-sand tracking-tight">The Calm Monk Discipline</h3>
+          <p class="text-xs text-earth-muted leading-relaxed font-sans">
+            Inspired by Miyamoto Musashi's <em>Dokkodo</em> and the calm detachment of stoic philosophy: no panic in production, no emotional over-reaction to volatile market shifts. Relentless focus on core mastery and deliberate, high-leverage execution.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-earth-border text-[11px] font-mono text-copper-glow">
+          "Do nothing which is of no use." &minus; Musashi
+        </div>
+      </div>
+
+      <!-- Pillar 2 -->
+      <div class="earth-glass rounded-2xl p-6 border border-earth-border flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-copper-deep/80 border border-copper/40 flex items-center justify-center text-copper-glow shadow-inner">
+            <i class="fa-solid fa-gamepad text-lg"></i>
+          </div>
+          <h3 class="text-lg font-bold text-earth-sand tracking-tight">The Gamer &amp; Modder Origin</h3>
+          <p class="text-xs text-earth-muted leading-relaxed font-sans">
+            Growing up in an offline era with no internet, learning computer science began with missing DirectX DLLs, hex editors, modding GTA San Andreas, and troubleshooting corrupted OS installations with my brother. That curiosity remains the cornerstone of my systems engineering.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-earth-border text-[11px] font-mono text-copper-light">
+          Systems as open worlds to explore &amp; master
+        </div>
+      </div>
+
+      <!-- Pillar 3 -->
+      <div class="earth-glass rounded-2xl p-6 border border-earth-border flex flex-col justify-between">
+        <div class="space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-copper-deep/80 border border-copper/40 flex items-center justify-center text-copper-glow shadow-inner">
+            <i class="fa-solid fa-arrow-trend-up text-lg"></i>
+          </div>
+          <h3 class="text-lg font-bold text-earth-sand tracking-tight">The Rule of Two (Automate Once)</h3>
+          <p class="text-xs text-earth-muted leading-relaxed font-sans">
+            If a manual task is performed twice, write a script. If it is performed thrice, engineer an automated service. Technology is leverage designed to produce cashflow, freedom, and time to explore architecture, literature, and nature.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-earth-border text-[11px] font-mono text-copper">
+          Software that works while you sleep
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 8: CONTACT & FOOTER ==================== -->
+  <footer id="contact" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-earth-border">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+      
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="text-lg font-bold text-earth-sand tracking-tight">Shiva Rakesh S</span>
+          <span class="text-xs font-mono text-earth-muted">&bull; Chennai, India</span>
+        </div>
+        <p class="text-xs text-earth-muted font-mono mt-1">
+          Open for high-impact systems architecture consulting, technical advisory, and product collaboration.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-4 text-xs font-mono">
+        <a href="https://github.com/radagastroigi" target="_blank" class="px-4 py-2 rounded-lg earth-glass hover:border-copper text-earth-sand border border-earth-border flex items-center gap-2 transition-colors">
+          <i class="fa-brands fa-github text-sm text-copper-glow"></i>
+          <span>GitHub</span>
+        </a>
+        <a href="https://linkedin.com" target="_blank" class="px-4 py-2 rounded-lg earth-glass hover:border-copper text-earth-sand border border-earth-border flex items-center gap-2 transition-colors">
+          <i class="fa-brands fa-linkedin text-sm text-copper-glow"></i>
+          <span>LinkedIn</span>
+        </a>
+        <button onclick="openDeployModal()" class="px-4 py-2 rounded-lg brushed-copper-btn font-bold transition-all">
+          Deploy Free
+        </button>
+      </div>
+
+    </div>
+
+    <div class="mt-8 pt-8 border-t border-earth-border/50 text-center text-xs font-mono text-earth-muted/60">
+      &copy; 2026 Shiva Rakesh S &bull; Earth &amp; Brushed Copper Aesthetic. Hosted free on GitHub Pages.
+    </div>
+  </footer>
+
+  <!-- ==================== MODAL: STEP-BY-STEP DEPLOY TO GITHUB PAGES FREE ==================== -->
+  <div id="deployModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="earth-glass rounded-2xl max-w-2xl w-full border border-earth-border p-6 sm:p-8 space-y-6 max-h-[90vh] overflow-y-auto shadow-2xl">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-earth-border">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-copper-deep/80 border border-copper/40 flex items-center justify-center text-copper-glow shadow-inner">
+            <i class="fa-brands fa-github text-base"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-earth-sand tracking-tight">Deploy Free Forever on GitHub Pages</h3>
+            <p class="text-xs font-mono text-earth-muted">Zero hosting bills. 100% free with automated global CDN.</p>
+          </div>
+        </div>
+        <button onclick="closeDeployModal()" class="text-earth-muted hover:text-earth-sand text-lg">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Steps -->
+      <div class="space-y-4 font-mono text-xs text-earth-sand">
+        
+        <div class="p-3.5 rounded-xl bg-earth-void border border-earth-border space-y-2">
+          <div class="font-bold text-copper-glow flex items-center gap-2">
+            <span class="w-5 h-5 rounded-full bg-copper-deep border border-copper/50 flex items-center justify-center text-[10px] text-copper-glow">1</span>
+            Create Your GitHub Pages Repository
+          </div>
+          <p class="text-earth-muted font-sans">
+            Log in to GitHub and create a new public repository named:
+          </p>
+          <div class="p-2 rounded bg-earth-card border border-earth-border text-earth-sand flex justify-between items-center">
+            <code>radagastroigi.github.io</code>
+            <button onclick="copyToClipboard('radagastroigi.github.io')" class="text-earth-muted hover:text-copper-glow text-[11px]">Copy</button>
+          </div>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-earth-void border border-earth-border space-y-2">
+          <div class="font-bold text-copper-glow flex items-center gap-2">
+            <span class="w-5 h-5 rounded-full bg-copper-deep border border-copper/50 flex items-center justify-center text-[10px] text-copper-glow">2</span>
+            Add the Code as <code class="text-earth-sand">index.html</code>
+          </div>
+          <p class="text-earth-muted font-sans">
+            Inside the repository, click <strong>Add file &rarr; Create new file</strong>, name it exactly <code class="text-earth-sand">index.html</code>, paste the contents of this file, and commit to the <code class="text-copper-glow">main</code> branch.
+          </p>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-earth-void border border-earth-border space-y-2">
+          <div class="font-bold text-copper-glow flex items-center gap-2">
+            <span class="w-5 h-5 rounded-full bg-copper-deep border border-copper/50 flex items-center justify-center text-[10px] text-copper-glow">3</span>
+            Enable Pages in Settings
+          </div>
+          <p class="text-earth-muted font-sans">
+            Navigate to <strong>Settings &rarr; Pages</strong>. Under <strong>Build and deployment &rarr; Branch</strong>, ensure <code class="text-earth-sand">main</code> and <code class="text-earth-sand">/ (root)</code> are selected and click <strong>Save</strong>.
+          </p>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-copper-deep/40 border border-copper/40 text-copper-glow">
+          <i class="fa-solid fa-circle-check mr-1.5"></i>
+          Your live portfolio will automatically go live worldwide at: 
+          <a href="https://radagastroigi.github.io" target="_blank" class="underline font-bold ml-1 text-copper-light">https://radagastroigi.github.io</a>
+        </div>
+
+      </div>
+
+      <div class="flex justify-end pt-2">
+        <button onclick="closeDeployModal()" class="px-5 py-2.5 rounded-lg brushed-metal hover:border-copper/50 border border-earth-border text-xs font-mono text-earth-sand">
+          Close Guide
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT: SANDBOX ENGINES & CALCULATORS ==================== -->
+  <script>
+    // ==================== 1. FINCORE-AI RATE LIMITER SIMULATOR ====================
+    const fincoreDeque = [];
+    const WINDOW_MS = 10000; // 10 seconds
+    const MAX_BURST = 5;
+
+    function cleanDeque(now) {
+      while (fincoreDeque.length > 0 && (now - fincoreDeque[0]) > WINDOW_MS) {
+        fincoreDeque.shift();
+      }
+    }
+
+    function firePaymentRequest(count) {
+      const logs = document.getElementById('fincoreLogs');
+      const now = Date.now();
+      cleanDeque(now);
+
+      for (let i = 0; i < count; i++) {
+        cleanDeque(Date.now());
+        const timeStr = new Date().toISOString().substring(11, 23);
+        const reqId = Math.random().toString(36).substring(2, 7);
+
+        if (fincoreDeque.length < MAX_BURST) {
+          fincoreDeque.push(Date.now());
+          const entry = document.createElement('div');
+          entry.className = 'text-copper-glow';
+          entry.innerHTML = `[${timeStr}] 200 OK &bull; Tx #${reqId} accepted (Slot ${fincoreDeque.length}/${MAX_BURST})`;
+          logs.prepend(entry);
+        } else {
+          const entry = document.createElement('div');
+          entry.className = 'text-amber-400 font-bold';
+          entry.innerHTML = `[${timeStr}] 429 THROTTLED &bull; Fraud burst detected on Tx #${reqId}`;
+          logs.prepend(entry);
+        }
+      }
+      updateFincoreUI();
+    }
+
+    function updateFincoreUI() {
+      cleanDeque(Date.now());
+      const count = fincoreDeque.length;
+      document.getElementById('fincoreDequeSize').innerText = count;
+      const pct = Math.min(100, Math.round((count / MAX_BURST) * 100));
+      document.getElementById('fincoreProgressBar').style.width = pct + '%';
+      document.getElementById('fincoreSaturationText').innerText = pct + '%';
+      
+      const bar = document.getElementById('fincoreProgressBar');
+      if (pct >= 100) {
+        bar.className = 'h-full bg-amber-500 transition-all duration-300';
+      } else {
+        bar.className = 'h-full copper-gradient transition-all duration-300';
+      }
+    }
+
+    function resetRateLimiter() {
+      fincoreDeque.length = 0;
+      updateFincoreUI();
+      const logs = document.getElementById('fincoreLogs');
+      logs.innerHTML = '<div class="text-earth-muted/60">// Window purged. In-memory deque reset to 0.</div>';
+    }
+
+    // Prune expired requests every 500ms
+    setInterval(() => {
+      if (fincoreDeque.length > 0) {
+        updateFincoreUI();
+      }
+    }, 500);
+
+    // ==================== 2. QUESTLEDGER DOUBLE-ENTRY ENGINE ====================
+    let userBalance = 1250.00;
+    let escrowBalance = 3500.00;
+    let revenueBalance = 450.00;
+
+    function commitLedgerEntry() {
+      const action = document.getElementById('ledgerAction').value;
+      const logs = document.getElementById('ledgerLogs');
+      const timeStr = new Date().toISOString().substring(11, 19);
+
+      if (action === 'deposit') {
+        userBalance -= 100.00;
+        escrowBalance += 100.00;
+        addLedgerLog(`[${timeStr}] TX: -$100.00 User &rarr; +$100.00 Escrow [&Delta;=0.00 VALID]`, 'text-copper-glow');
+      } else if (action === 'payout') {
+        escrowBalance -= 250.00;
+        userBalance += 250.00;
+        addLedgerLog(`[${timeStr}] TX: -$250.00 Escrow &rarr; +$250.00 User [&Delta;=0.00 VALID]`, 'text-copper-glow');
+      } else if (action === 'fee') {
+        userBalance -= 15.00;
+        revenueBalance += 15.00;
+        addLedgerLog(`[${timeStr}] PROTOCOL FEE: -$15.00 User &rarr; +$15.00 System Revenue [&Delta;=0.00]`, 'text-copper-light');
+      }
+
+      document.getElementById('userBalance').innerText = userBalance.toFixed(2);
+      document.getElementById('escrowBalance').innerText = escrowBalance.toFixed(2);
+      document.getElementById('revenueBalance').innerText = revenueBalance.toFixed(2);
+    }
+
+    function addLedgerLog(msg, colorClass) {
+      const logs = document.getElementById('ledgerLogs');
+      const item = document.createElement('div');
+      item.className = colorClass;
+      item.innerText = msg;
+      logs.prepend(item);
+    }
+
+    function simulateLedgerRace() {
+      const timeStr = new Date().toISOString().substring(11, 19);
+      addLedgerLog(`[${timeStr}] THREAD 1: Acquiring RowVersion 0x8F9...`, 'text-earth-muted');
+      setTimeout(() => {
+        addLedgerLog(`[${timeStr}] THREAD 2: Conflict on RowVersion 0x8F9! OptimisticConcurrencyException thrown. Rollback complete.`, 'text-copper-light font-bold');
+      }, 350);
+    }
+
+    // ==================== 3. FLOWSYNC AGENT WORKFLOW SIMULATOR ====================
+    function runAgentWorkflow(type) {
+      const box = document.getElementById('agentStatusBox');
+      const steps = ['step-plan', 'step-code', 'step-eval', 'step-gate'];
+
+      steps.forEach(s => {
+        document.getElementById(s).className = 'p-2 rounded bg-earth-card border border-earth-border text-earth-muted';
+      });
+
+      box.innerText = type === 'audit' ? "Planner: Generating schema dependency graph..." : "Planner: Parsing gRPC proto contract...";
+      document.getElementById('step-plan').className = 'p-2 rounded bg-copper-deep border border-copper text-copper-glow font-bold';
+
+      setTimeout(() => {
+        box.innerText = "Execution: Synthesizing database migrations & verifying foreign keys...";
+        document.getElementById('step-code').className = 'p-2 rounded bg-copper-deep border border-copper text-copper-glow font-bold';
+      }, 700);
+
+      setTimeout(() => {
+        box.innerText = "Validator: Running AST static analysis & safety validation...";
+        document.getElementById('step-eval').className = 'p-2 rounded bg-copper-deep border border-copper text-copper-glow font-bold';
+      }, 1400);
+
+      setTimeout(() => {
+        box.innerText = "Gate Complete: Code approved. Human checkpoint signed off with 0 warnings.";
+        document.getElementById('step-gate').className = 'p-2 rounded bg-copper-deep border border-copper-glow text-copper-light font-bold';
+      }, 2100);
+    }
+
+    // ==================== 4. STREAMMESH IDEMPOTENCY SIMULATOR ====================
+    let dupeCount = 0;
+    const processedEvents = new Set();
+
+    function publishEvent(simulateRetry) {
+      const logs = document.getElementById('meshLogs');
+      const timeStr = new Date().toISOString().substring(11, 19);
+      const eventId = simulateRetry ? 'evt_order_8829_retry' : 'evt_' + Math.random().toString(36).substring(2, 8);
+
+      if (simulateRetry) {
+        // Send duplicate bursts
+        for (let i = 1; i <= 3; i++) {
+          setTimeout(() => {
+            if (processedEvents.has(eventId)) {
+              dupeCount++;
+              document.getElementById('retryCounter').innerText = `${dupeCount} Dupes Caught`;
+              const entry = document.createElement('div');
+              entry.className = 'text-amber-400 font-bold';
+              entry.innerHTML = `[${timeStr}] DEDUPED: Event ${eventId} suppressed by Redis SETNX lock (Attempt #${i})`;
+              logs.prepend(entry);
+            } else {
+              processedEvents.add(eventId);
+              const entry = document.createElement('div');
+              entry.className = 'text-copper-glow';
+              entry.innerHTML = `[${timeStr}] PROCESSED: Event ${eventId} committed atomically`;
+              logs.prepend(entry);
+            }
+          }, i * 200);
+        }
+      } else {
+        processedEvents.add(eventId);
+        const entry = document.createElement('div');
+        entry.className = 'text-copper-glow';
+        entry.innerHTML = `[${timeStr}] PROCESSED: Event ${eventId} committed atomically`;
+        logs.prepend(entry);
+      }
+    }
+
+    // ==================== 5. SPRINT FILTER ====================
+    function filterSprint(phase) {
+      const cards = document.querySelectorAll('.sprint-card');
+      const btnAll = document.getElementById('sprint-all');
+      const btnActive = document.getElementById('sprint-active');
+
+      if (phase === 'active') {
+        cards.forEach(c => {
+          if (c.getAttribute('data-status') === 'active') {
+            c.style.display = 'flex';
+          } else {
+            c.style.display = 'none';
+          }
+        });
+        btnActive.className = 'px-3 py-1.5 rounded-lg brushed-metal border border-copper text-copper-glow font-medium';
+        btnAll.className = 'px-3 py-1.5 rounded-lg brushed-metal border border-earth-border text-earth-muted';
+      } else {
+        cards.forEach(c => c.style.display = 'flex');
+        btnAll.className = 'px-3 py-1.5 rounded-lg brushed-metal border border-copper text-copper-glow font-medium';
+        btnActive.className = 'px-3 py-1.5 rounded-lg brushed-metal border border-earth-border text-earth-muted';
+      }
+    }
+
+    // ==================== 6. SAAS UNIT ECONOMICS CALCULATOR ====================
+    function calculateSaaSMetrics() {
+      const price = parseFloat(document.getElementById('priceRange').value);
+      const users = parseInt(document.getElementById('usersRange').value);
+      const cost = parseFloat(document.getElementById('costRange').value);
+
+      document.getElementById('priceDisplay').innerText = '$' + price;
+      document.getElementById('usersDisplay').innerText = users;
+      document.getElementById('costDisplay').innerText = '$' + cost;
+
+      const mrr = price * users;
+      const arr = mrr * 12;
+      const netProfit = mrr - cost;
+      const margin = mrr > 0 ? ((netProfit / mrr) * 100).toFixed(1) : 0;
+
+      document.getElementById('mrrOutput').innerText = '$' + mrr.toLocaleString();
+      document.getElementById('arrOutput').innerText = '$' + arr.toLocaleString();
+      document.getElementById('marginOutput').innerText = margin + '%';
+    }
+
+    // ==================== 7. FOUNDER TERMINAL ====================
+    const commands = {
+      automate: "RULE OF TWO: If performed twice, write a script. If performed thrice, build an automated tool. Leverage creates compounding freedom.",
+      musashi: "DOKKODO PRINCIPLE: Do not regret what you have done. Be detached from desire. Master your craft with quiet daily focus.",
+      goals: "CURRENT TARGET: Ship 3 profitable micro-SaaS engines within the 100-Day sprint. Maintain sub-5ms p99 latency.",
+      stack: "CORE ARSENAL: C#, .NET 8, ASP.NET Core, Redis, PostgreSQL, Kafka, Python, Docker.",
+      status: "SPRINT STATUS: Day 28 / 100. Double-entry ledger invariants verified. Zero tech debt."
+    };
+
+    function handleTerminalSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('terminalInput');
+      executeCommand(input.value.trim().toLowerCase());
+      input.value = '';
+    }
+
+    function executeCommand(cmd) {
+      const output = document.getElementById('terminalOutput');
+      const userCmd = document.createElement('div');
+      userCmd.className = 'text-copper-glow';
+      userCmd.innerText = '> ' + cmd;
+      output.appendChild(userCmd);
+
+      const response = document.createElement('div');
+      response.className = 'text-earth-sand';
+
+      if (commands[cmd]) {
+        response.innerText = commands[cmd];
+      } else {
+        response.innerText = `Command not recognized. Try: 'automate', 'musashi', 'goals', 'stack', 'status'`;
+      }
+
+      output.appendChild(response);
+      output.scrollTop = output.scrollHeight;
+    }
+
+    // ==================== 8. MODAL CONTROLLERS ====================
+    function openDeployModal() {
+      document.getElementById('deployModal').classList.remove('hidden');
+      document.getElementById('deployModal').classList.add('flex');
+    }
+
+    function closeDeployModal() {
+      document.getElementById('deployModal').classList.remove('flex');
+      document.getElementById('deployModal').classList.add('hidden');
+    }
+
+    function copyToClipboard(text) {
+      const temp = document.createElement('input');
+      temp.value = text;
+      document.body.appendChild(temp);
+      temp.select();
+      document.execCommand('copy');
+      document.body.removeChild(temp);
+    }
+
+    // Initialize calculations on load
+    window.addEventListener('DOMContentLoaded', () => {
+      calculateSaaSMetrics();
+    });
+  </script>
+</body>
+</html>
