@@ -3,850 +3,395 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shiva Rakesh S — Backend &amp; Applied AI Systems Engineer | Live Product Demos</title>
+  <title>Shiva Rakesh S — Backend &amp; Applied AI Systems Engineer</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <style>
     :root {
-      --bg: #110F0E;
-      --surface: #1A1715;
-      --surface-2: #221E1B;
-      --border: #2F2925;
-      --copper: #C87D55;
-      --copper-light: #E2A37E;
-      --text: #F5F2EE;
-      --muted: #A8A29E;
+      --bg: #FAF9F6;
+      --surface: #FFFFFF;
+      --surface-soft: #F3F0EA;
+      --border: #E5E0D8;
+      --ink: #161514;
+      --muted: #5C5852;
+      --accent: #A94D28;
     }
     body {
       background-color: var(--bg);
-      color: var(--text);
+      color: var(--ink);
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
-    .copper-text { color: var(--copper-light); }
-    .copper-bg { background-color: var(--copper); }
-    .copper-bg:hover { background-color: #b56d47; }
-    .card {
-      background-color: var(--surface);
-      border: 1px solid var(--border);
-    }
-    .card-2 {
-      background-color: var(--surface-2);
-      border: 1px solid var(--border);
-    }
-    .tab-active {
-      background-color: var(--copper);
-      color: #110F0E;
-      font-weight: 700;
-    }
-    .tab-inactive {
-      background-color: var(--surface-2);
-      color: var(--muted);
-      border: 1px solid var(--border);
-    }
-    .tab-inactive:hover {
-      color: var(--text);
-      border-color: var(--copper);
-    }
-    @media print {
-      body { background: #ffffff !important; color: #111827 !important; }
-      header, #hero, #demos, #product, #experience, #contact, footer, .no-print { display: none !important; }
-      #resume { padding: 0 !important; margin: 0 !important; border: none !important; }
-      #resume-card { background: #ffffff !important; color: #111827 !important; border: none !important; box-shadow: none !important; }
-      #resume-card * { color: #111827 !important; border-color: #cbd5e1 !important; }
-    }
+    .serif { font-family: Georgia, 'Times New Roman', serif; }
+    .card { background-color: var(--surface); border: 1px solid var(--border); }
+    .soft-card { background-color: var(--surface-soft); border: 1px solid var(--border); }
+    .accent-text { color: var(--accent); }
+    .accent-btn { background-color: var(--ink); color: #FAF9F6; }
+    .accent-btn:hover { background-color: var(--accent); }
   </style>
 </head>
-<body class="antialiased selection:bg-[#C87D55] selection:text-[#110F0E]">
+<body class="selection:bg-[#A94D28] selection:text-white">
 
-  <!-- Toast Notification -->
-  <div id="toast" class="fixed bottom-5 right-5 z-50 hidden rounded-lg border border-[#C87D55] bg-[#1A1715] px-4 py-3 text-sm font-medium text-[#F5F2EE] shadow-xl"></div>
+  <div id="toast" class="fixed bottom-5 right-5 z-50 hidden rounded-lg border border-[#E5E0D8] bg-[#161514] px-4 py-2.5 text-xs font-medium text-[#FAF9F6] shadow-lg"></div>
 
-  <!-- Top Navigation -->
-  <header class="sticky top-0 z-40 border-b border-[#2F2925] bg-[#110F0E]/95 backdrop-blur">
-    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 sm:px-6">
-      <a href="#hero" class="flex items-center gap-2.5 text-base font-bold tracking-tight text-[#F5F2EE]">
-        <span class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-[#C87D55] text-sm font-extrabold text-[#110F0E]">SR</span>
+  <!-- Navigation -->
+  <header class="sticky top-0 z-40 border-b border-[#E5E0D8] bg-[#FAF9F6]/95 backdrop-blur">
+    <div class="mx-auto flex max-w-4xl items-center justify-between px-5 py-4">
+      <a href="#top" class="flex items-center gap-2.5 text-sm font-semibold tracking-tight text-[#161514]">
+        <span class="inline-flex h-7 w-7 items-center justify-center rounded-md bg-[#161514] text-xs font-bold text-[#FAF9F6]">SR</span>
         <span>Shiva Rakesh S</span>
       </a>
-      <nav class="hidden items-center gap-6 text-sm text-[#A8A29E] md:flex">
-        <a href="#demos" class="transition hover:text-[#E2A37E]">Live Demos</a>
-        <a href="#product" class="transition hover:text-[#E2A37E]">PayShield</a>
-        <a href="#experience" class="transition hover:text-[#E2A37E]">Experience</a>
-        <a href="#resume" class="transition hover:text-[#E2A37E]">Resume</a>
-        <a href="#contact" class="rounded-md bg-[#C87D55] px-3.5 py-1.5 font-semibold text-[#110F0E] transition hover:bg-[#b56d47]">Contact</a>
+      <nav class="hidden items-center gap-5 text-sm text-[#5C5852] sm:flex">
+        <a href="#products" class="transition hover:text-[#161514]">Products</a>
+        <a href="#engineering" class="transition hover:text-[#161514]">Systems</a>
+        <a href="#experience" class="transition hover:text-[#161514]">Work</a>
+        <a href="#about" class="transition hover:text-[#161514]">About</a>
+        <a href="#contact" class="rounded-md bg-[#161514] px-3.5 py-1.5 text-xs font-medium text-[#FAF9F6] transition hover:bg-[#A94D28]">Contact</a>
       </nav>
-      <button id="mobile-menu-btn" type="button" class="rounded-md border border-[#2F2925] px-3 py-1.5 text-xs font-semibold text-[#F5F2EE] md:hidden" aria-label="Toggle Menu">Menu</button>
+      <button id="menu-btn" type="button" class="rounded-md border border-[#E5E0D8] px-3 py-1.5 text-xs font-medium text-[#161514] sm:hidden">Menu</button>
     </div>
-    <div id="mobile-menu" class="hidden border-t border-[#2F2925] bg-[#1A1715] px-4 py-3 md:hidden">
-      <div class="flex flex-col gap-2.5 text-sm text-[#A8A29E]">
-        <a href="#demos" class="mobile-nav-link py-1 hover:text-[#E2A37E]">Live Demos</a>
-        <a href="#product" class="mobile-nav-link py-1 hover:text-[#E2A37E]">PayShield Commercial Product</a>
-        <a href="#experience" class="mobile-nav-link py-1 hover:text-[#E2A37E]">Experience</a>
-        <a href="#resume" class="mobile-nav-link py-1 hover:text-[#E2A37E]">Industrial Resume</a>
-        <a href="#contact" class="mobile-nav-link py-1 font-semibold text-[#E2A37E]">Contact Me</a>
+    <div id="mobile-nav" class="hidden border-t border-[#E5E0D8] bg-white px-5 py-3 sm:hidden">
+      <div class="flex flex-col gap-2.5 text-sm text-[#5C5852]">
+        <a href="#products" class="mobile-link py-1 hover:text-[#161514]">Products</a>
+        <a href="#engineering" class="mobile-link py-1 hover:text-[#161514]">DSA &amp; System Design</a>
+        <a href="#experience" class="mobile-link py-1 hover:text-[#161514]">Work</a>
+        <a href="#about" class="mobile-link py-1 hover:text-[#161514]">About</a>
+        <a href="#contact" class="mobile-link py-1 font-medium text-[#A94D28]">Contact &amp; Services</a>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section id="hero" class="mx-auto max-w-6xl px-4 pb-12 pt-12 sm:px-6 sm:pt-16">
-    <div class="grid gap-8 lg:grid-cols-12 lg:items-center">
-      <div class="lg:col-span-8">
-        <div class="mb-4 inline-flex items-center gap-2 rounded-full border border-[#2F2925] bg-[#1A1715] px-3.5 py-1 text-xs font-medium text-[#E2A37E]">
-          <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
-          Chennai, India &middot; Open to High-Impact Backend / AI Roles &amp; B2B Product Pilots
-        </div>
-        <h1 class="text-3xl font-extrabold tracking-tight text-[#F5F2EE] sm:text-5xl sm:leading-tight">
-          Backend &amp; Applied AI Systems Engineer building <span class="copper-text">resilient payment &amp; risk infrastructure</span>.
-        </h1>
-        <p class="mt-4 max-w-2xl text-base leading-relaxed text-[#A8A29E] sm:text-lg">
-          3+ years shipping production C#/.NET 8, SQL Server, Python, and AWS backend systems at HCLTech and ITGalax. Creator of <strong class="text-[#F5F2EE]">FinCore-AI</strong> and <strong class="text-[#F5F2EE]">PayShield</strong>—test the live interactive engines below without leaving this page.
-        </p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#demos" class="copper-bg rounded-lg px-5 py-2.5 text-sm font-bold text-[#110F0E] transition">Launch Live Demos</a>
-          <a href="#resume" class="rounded-lg border border-[#2F2925] bg-[#1A1715] px-5 py-2.5 text-sm font-semibold text-[#F5F2EE] transition hover:border-[#C87D55]">View Industrial Resume</a>
-          <a href="#contact" class="rounded-lg border border-[#2F2925] bg-transparent px-5 py-2.5 text-sm font-semibold text-[#E2A37E] transition hover:bg-[#1A1715]">Hire / Request Pilot</a>
-        </div>
+  <main id="top" class="mx-auto max-w-4xl px-5">
+
+    <!-- Hero -->
+    <section class="pb-14 pt-14 sm:pb-16 sm:pt-20">
+      <p class="text-xs font-semibold uppercase tracking-widest accent-text">Chennai, India &middot; Backend &amp; Applied AI Engineer</p>
+      <h1 class="serif mt-3 text-3xl font-normal leading-snug tracking-tight text-[#161514] sm:text-5xl sm:leading-tight">
+        Building resilient payment systems, backend infrastructure, and practical software products.
+      </h1>
+      <p class="mt-5 max-w-2xl text-base leading-relaxed text-[#5C5852]">
+        I'm <strong class="font-semibold text-[#161514]">Shiva Rakesh S</strong>—a software engineer with 3+ years of production experience in C#/.NET 8, Python, SQL Server, and AWS. I engineer high-reliability backend services by day and build cloud-hosted software products designed for real users.
+      </p>
+
+      <div class="mt-7 flex flex-wrap items-center gap-3">
+        <a href="#products" class="accent-btn rounded-lg px-5 py-2.5 text-sm font-medium transition">View Products</a>
+        <a href="https://radagastroigi.github.io/Shiva_Rakesh_Resume.pdf" download="Shiva_Rakesh_Resume.pdf" target="_blank" rel="noopener noreferrer" class="rounded-lg border border-[#E5E0D8] bg-white px-5 py-2.5 text-sm font-medium text-[#161514] transition hover:border-[#A94D28]">Download Resume (PDF)</a>
+        <a href="https://www.loom.com/share/41bde33a487442dfaca639692ed312cd" target="_blank" rel="noopener noreferrer" class="rounded-lg border border-[#E5E0D8] bg-[#F3F0EA] px-4 py-2.5 text-sm font-medium text-[#161514] transition hover:border-[#A94D28]">60s Video Intro &nearr;</a>
       </div>
 
-      <div class="card rounded-xl p-5 lg:col-span-4">
-        <div class="text-xs font-bold uppercase tracking-wider text-[#A8A29E]">Verified Engineering Snapshot</div>
-        <div class="mt-4 grid grid-cols-2 gap-3">
-          <div class="card-2 rounded-lg p-3.5">
-            <div class="text-2xl font-extrabold copper-text">3+ Yrs</div>
-            <div class="mt-1 text-xs text-[#A8A29E]">Production .NET, SQL &amp; Python</div>
-          </div>
-          <div class="card-2 rounded-lg p-3.5">
-            <div class="text-2xl font-extrabold copper-text">12+</div>
-            <div class="mt-1 text-xs text-[#A8A29E]">FinCore-AI Risk Modules</div>
-          </div>
-          <div class="card-2 rounded-lg p-3.5">
-            <div class="text-2xl font-extrabold copper-text">8.7/10</div>
-            <div class="mt-1 text-xs text-[#A8A29E]">B.E. CSE (Velammal CET)</div>
-          </div>
-          <div class="card-2 rounded-lg p-3.5">
-            <div class="text-2xl font-extrabold copper-text">100%</div>
-            <div class="mt-1 text-xs text-[#A8A29E]">Handcrafted Core Logic</div>
-          </div>
-        </div>
-        <div class="mt-4 flex items-center justify-between border-t border-[#2F2925] pt-3.5 text-xs text-[#A8A29E]">
-          <span>GitHub: <a href="https://github.com/radagastroigi" target="_blank" rel="noopener noreferrer" class="text-[#E2A37E] underline">radagastroigi</a></span>
-          <span>LinkedIn: <a href="https://www.linkedin.com/in/shiva-rakesh-s/" target="_blank" rel="noopener noreferrer" class="text-[#E2A37E] underline">shiva-rakesh-s</a></span>
-        </div>
+      <!-- Full Online Presence Strip -->
+      <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-[#E5E0D8] pt-5 text-xs font-medium text-[#5C5852]">
+        <a href="https://github.com/radagastroigi" target="_blank" rel="noopener noreferrer" class="hover:text-[#A94D28]">GitHub &nearr;</a>
+        <a href="https://www.linkedin.com/in/shiva-rakesh-s/" target="_blank" rel="noopener noreferrer" class="hover:text-[#A94D28]">LinkedIn &nearr;</a>
+        <a href="https://leetcode.com/u/radagastroigi/" target="_blank" rel="noopener noreferrer" class="hover:text-[#A94D28]">LeetCode &nearr;</a>
+        <a href="https://www.loom.com/share/41bde33a487442dfaca639692ed312cd" target="_blank" rel="noopener noreferrer" class="hover:text-[#A94D28]">Video Resume &nearr;</a>
+        <a href="mailto:monkthetics@gmail.com" class="hover:text-[#A94D28]">monkthetics@gmail.com</a>
+        <span>+91 6382332374</span>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Interactive Live Product Demos -->
-  <section id="demos" class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-    <div class="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-      <div>
-        <div class="text-xs font-bold uppercase tracking-widest copper-text">Interactive Proof of Work</div>
-        <h2 class="mt-1 text-2xl font-extrabold text-[#F5F2EE] sm:text-3xl">Live Product Demos</h2>
-        <p class="mt-1 text-sm text-[#A8A29E]">Real algorithms running directly in your browser—mirroring the exact Python/FastAPI engines inside <a href="https://github.com/radagastroigi/FinCore-Enterprise-Systems" target="_blank" rel="noopener noreferrer" class="text-[#E2A37E] underline">FinCore-Enterprise-Systems</a>.</p>
-      </div>
-      <div class="flex flex-wrap gap-2">
-        <button id="tab-fraud" type="button" class="demo-tab tab-active rounded-lg px-3.5 py-2 text-xs transition" data-target="panel-fraud">1. Fraud &amp; Velocity Guard</button>
-        <button id="tab-webhook" type="button" class="demo-tab tab-inactive rounded-lg px-3.5 py-2 text-xs transition" data-target="panel-webhook">2. PayShield Webhook &amp; DLQ</button>
-        <button id="tab-orderbook" type="button" class="demo-tab tab-inactive rounded-lg px-3.5 py-2 text-xs transition" data-target="panel-orderbook">3. Limit Order Book</button>
-      </div>
-    </div>
-
-    <!-- Demo Panel 1: Fraud & Velocity Guard -->
-    <div id="panel-fraud" class="demo-panel card rounded-xl p-5 sm:p-6">
-      <div class="mb-4 flex flex-wrap items-center justify-between gap-2 border-b border-[#2F2925] pb-4">
+    <!-- Products -->
+    <section id="products" class="border-t border-[#E5E0D8] py-14">
+      <div class="mb-8 flex flex-col justify-between gap-2 sm:flex-row sm:items-end">
         <div>
-          <h3 class="text-lg font-bold text-[#F5F2EE]">FinCore-AI — Real-Time Payment Fraud, Velocity &amp; Impossible-Travel Engine</h3>
-          <p class="text-xs text-[#A8A29E]">Tests O(1) sliding-window velocity, idempotency deduplication, and Haversine impossible-travel speed (&gt;900 km/h).</p>
+          <p class="text-xs font-semibold uppercase tracking-widest accent-text">Products</p>
+          <h2 class="serif mt-2 text-2xl text-[#161514] sm:text-3xl">Software I'm shipping</h2>
         </div>
-        <div class="flex flex-wrap gap-2">
-          <button id="preset-normal" type="button" class="rounded-md border border-[#2F2925] bg-[#221E1B] px-2.5 py-1 text-xs text-[#F5F2EE] hover:border-[#C87D55]">Preset: Normal Debit</button>
-          <button id="preset-velocity" type="button" class="rounded-md border border-[#2F2925] bg-[#221E1B] px-2.5 py-1 text-xs text-[#F5F2EE] hover:border-[#C87D55]">Preset: Carding Spike</button>
-          <button id="preset-geo" type="button" class="rounded-md border border-[#2F2925] bg-[#221E1B] px-2.5 py-1 text-xs text-[#F5F2EE] hover:border-[#C87D55]">Preset: Chennai → London</button>
-        </div>
+        <a href="https://github.com/radagastroigi" target="_blank" rel="noopener noreferrer" class="text-xs font-medium text-[#5C5852] underline underline-offset-4 hover:text-[#A94D28]">Explore GitHub &rarr;</a>
       </div>
 
-      <div class="grid gap-6 lg:grid-cols-12">
-        <div class="space-y-3.5 lg:col-span-5">
-          <div class="grid grid-cols-2 gap-3">
+      <div class="space-y-5">
+        <!-- Product 1: PayShield -->
+        <article class="card rounded-xl p-6 transition hover:border-[#C5BCB0]">
+          <div class="flex flex-wrap items-start justify-between gap-3">
             <div>
-              <label for="f-user" class="block text-xs font-medium text-[#A8A29E]">User ID</label>
-              <input id="f-user" type="text" value="usr_chennai_042" class="mt-1 w-full rounded-lg border border-[#2F2925] bg-[#110F0E] px-3 py-2 text-sm text-[#F5F2EE] focus:border-[#C87D55] focus:outline-none">
-            </div>
-            <div>
-              <label for="f-idem" class="block text-xs font-medium text-[#A8A29E]">Idempotency Key</label>
-              <input id="f-idem" type="text" value="tx_9001" class="mt-1 w-full rounded-lg border border-[#2F2925] bg-[#110F0E] px-3 py-2 text-sm text-[#F5F2EE] focus:border-[#C87D55] focus:outline-none">
-            </div>
-          </div>
-          <div class="grid grid-cols-2 gap-3">
-            <div>
-              <label for="f-amount" class="block text-xs font-medium text-[#A8A29E]">Amount (INR ₹)</label>
-              <input id="f-amount" type="number" value="4250" min="1" class="mt-1 w-full rounded-lg border border-[#2F2925] bg-[#110F0E] px-3 py-2 text-sm text-[#F5F2EE] focus:border-[#C87D55] focus:outline-none">
-            </div>
-            <div>
-              <label for="f-vel" class="block text-xs font-medium text-[#A8A29E]">Tx in Last 60s (Limit: 5)</label>
-              <input id="f-vel" type="number" value="2" min="0" max="50" class="mt-1 w-full rounded-lg border border-[#2F2925] bg-[#110F0E] px-3 py-2 text-sm text-[#F5F2EE] focus:border-[#C87D55] focus:outline-none">
-            </div>
-          </div>
-          <div class="grid grid-cols-2 gap-3">
-            <div>
-              <label for="f-dist" class="block text-xs font-medium text-[#A8A29E]">Geo Hop Distance (km)</label>
-              <input id="f-dist" type="number" value="6" min="0" class="mt-1 w-full rounded-lg border border-[#2F2925] bg-[#110F0E] px-3 py-2 text-sm text-[#F5F2EE] focus:border-[#C87D55] focus:outline-none">
-            </div>
-            <div>
-              <label for="f-mins" class="block text-xs font-medium text-[#A8A29E]">Minutes Since Last Tx</label>
-              <input id="f-mins" type="number" value="30" min="1" class="mt-1 w-full rounded-lg border border-[#2F2925] bg-[#110F0E] px-3 py-2 text-sm text-[#F5F2EE] focus:border-[#C87D55] focus:outline-none">
-            </div>
-          </div>
-          <div class="flex gap-2 pt-1">
-            <button id="btn-eval-fraud" type="button" class="copper-bg flex-1 rounded-lg px-4 py-2.5 text-sm font-bold text-[#110F0E] transition">Evaluate Transaction</button>
-            <button id="btn-reset-fraud" type="button" class="rounded-lg border border-[#2F2925] bg-[#221E1B] px-3.5 py-2.5 text-xs font-semibold text-[#A8A29E] hover:text-[#F5F2EE]">Reset Cache</button>
-          </div>
-        </div>
-
-        <div class="flex flex-col justify-between gap-3 lg:col-span-7">
-          <div id="fraud-verdict-box" class="card-2 rounded-lg p-4">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold uppercase tracking-wider text-[#A8A29E]">Decision Engine Output</span>
-              <span id="fraud-badge" class="rounded-full bg-emerald-500/20 px-3 py-0.5 text-xs font-bold text-emerald-300">APPROVED</span>
-            </div>
-            <div class="mt-3 grid grid-cols-3 gap-3 text-center">
-              <div class="rounded-md bg-[#110F0E] p-2.5">
-                <div class="text-xs text-[#A8A29E]">Risk Score</div>
-                <div id="fraud-score" class="mt-0.5 text-xl font-extrabold text-[#F5F2EE]">14 / 100</div>
+              <div class="flex items-center gap-2.5">
+                <h3 class="text-lg font-semibold text-[#161514]">PayShield <span class="text-sm font-normal text-[#5C5852]">(Powered by FinCore-AI)</span></h3>
+                <span class="rounded-full bg-[#F3F0EA] px-2.5 py-0.5 text-[11px] font-medium accent-text">Cloud SaaS &middot; Flagship</span>
               </div>
-              <div class="rounded-md bg-[#110F0E] p-2.5">
-                <div class="text-xs text-[#A8A29E]">Implied Speed</div>
-                <div id="fraud-speed" class="mt-0.5 text-xl font-extrabold text-[#F5F2EE]">12 km/h</div>
-              </div>
-              <div class="rounded-md bg-[#110F0E] p-2.5">
-                <div class="text-xs text-[#A8A29E]">Idempotency</div>
-                <div id="fraud-idem-status" class="mt-0.5 text-sm font-bold text-emerald-300">NEW_TX</div>
-              </div>
+              <p class="mt-1 text-xs text-[#5C5852]">Python &middot; FastAPI &middot; scikit-learn &middot; SQLite/PostgreSQL &middot; Docker &middot; pytest</p>
             </div>
-            <pre id="fraud-json" class="mt-3 overflow-x-auto rounded-md bg-[#110F0E] p-3 text-xs text-[#E2A37E]"></pre>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Demo Panel 2: PayShield Webhook HMAC & DLQ -->
-    <div id="panel-webhook" class="demo-panel card hidden rounded-xl p-5 sm:p-6">
-      <div class="mb-4 flex flex-wrap items-center justify-between gap-2 border-b border-[#2F2925] pb-4">
-        <div>
-          <h3 class="text-lg font-bold text-[#F5F2EE]">PayShield — Signed Webhook Dispatcher, Backoff &amp; Dead-Letter Queue</h3>
-          <p class="text-xs text-[#A8A29E]">Live preview of my commercial SaaS product: HMAC-SHA256 replay-safe signing + exponential backoff + 1-click DLQ replay.</p>
-        </div>
-        <span class="rounded-full border border-[#C87D55]/50 bg-[#C87D55]/10 px-3 py-1 text-xs font-semibold copper-text">PayShield Commercial MVP</span>
-      </div>
-
-      <div class="grid gap-6 lg:grid-cols-12">
-        <div class="space-y-3 lg:col-span-5">
-          <div>
-            <label for="wh-event-id" class="block text-xs font-medium text-[#A8A29E]">Event ID</label>
-            <input id="wh-event-id" type="text" value="evt_pay_88412" class="mt-1 w-full rounded-lg border border-[#2F2925] bg-[#110F0E] px-3 py-2 text-sm text-[#F5F2EE] focus:border-[#C87D55] focus:outline-none">
-          </div>
-          <div>
-            <label for="wh-secret" class="block text-xs font-medium text-[#A8A29E]">Merchant Signing Secret</label>
-            <input id="wh-secret" type="text" value="whsec_chennai_live_99a2" class="mt-1 w-full rounded-lg border border-[#2F2925] bg-[#110F0E] px-3 py-2 text-sm text-[#F5F2EE] focus:border-[#C87D55] focus:outline-none">
-          </div>
-          <div>
-            <label for="wh-mode" class="block text-xs font-medium text-[#A8A29E]">Simulated Merchant Endpoint Behavior</label>
-            <select id="wh-mode" class="mt-1 w-full rounded-lg border border-[#2F2925] bg-[#110F0E] px-3 py-2 text-sm text-[#F5F2EE] focus:border-[#C87D55] focus:outline-none">
-              <option value="ok">HTTP 200 OK (Instant Delivery)</option>
-              <option value="flaky">Flaky Server (Fails 2x → Succeeds on Retry #3)</option>
-              <option value="down">HTTP 503 Outage (Fails 3x → Routes to DLQ)</option>
-              <option value="replay">Stale Timestamp (&gt;300s Replay Attack Rejected)</option>
-            </select>
-          </div>
-          <button id="btn-send-webhook" type="button" class="copper-bg w-full rounded-lg px-4 py-2.5 text-sm font-bold text-[#110F0E] transition">Sign &amp; Dispatch Webhook</button>
-        </div>
-
-        <div class="space-y-3 lg:col-span-7">
-          <div class="card-2 rounded-lg p-4">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold uppercase tracking-wider text-[#A8A29E]">Delivery Trace &amp; HMAC Signature</span>
-              <span id="wh-status-badge" class="rounded-full bg-emerald-500/20 px-2.5 py-0.5 text-xs font-bold text-emerald-300">READY</span>
+            <div class="flex flex-wrap gap-2">
+              <a href="https://github.com/radagastroigi/FinCore-Enterprise-Systems" target="_blank" rel="noopener noreferrer" class="rounded-md border border-[#E5E0D8] bg-[#FAF9F6] px-3 py-1.5 text-xs font-medium text-[#161514] hover:border-[#A94D28]">GitHub &nearr;</a>
+              <button type="button" class="demo-btn rounded-md bg-[#161514] px-3 py-1.5 text-xs font-medium text-[#FAF9F6] hover:bg-[#A94D28]" data-product="PayShield">Hosted Demo &rarr;</button>
             </div>
-            <pre id="wh-trace" class="mt-2.5 max-h-40 overflow-y-auto rounded-md bg-[#110F0E] p-3 text-xs text-[#E2A37E]">Click "Sign &amp; Dispatch Webhook" to run live HMAC-SHA256 signing and backoff trace.</pre>
           </div>
-          <div class="card-2 rounded-lg p-4">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold uppercase tracking-wider text-[#A8A29E]">Dead-Letter Queue (<span id="dlq-count">0</span> failed events)</span>
-              <button id="btn-replay-dlq" type="button" class="rounded-md border border-[#C87D55] px-2.5 py-1 text-xs font-semibold text-[#E2A37E] hover:bg-[#C87D55] hover:text-[#110F0E]">Replay All DLQ</button>
-            </div>
-            <div id="dlq-list" class="mt-2 text-xs text-[#A8A29E]">No failed events in DLQ.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Demo Panel 3: Zerodha-Style Two-Heap Limit Order Book -->
-    <div id="panel-orderbook" class="demo-panel card hidden rounded-xl p-5 sm:p-6">
-      <div class="mb-4 border-b border-[#2F2925] pb-4">
-        <h3 class="text-lg font-bold text-[#F5F2EE]">Price-Time Priority Limit Order Book (Two-Heap Matching Engine)</h3>
-        <p class="text-xs text-[#A8A29E]">Matches crossing BUY (Max-Heap) and SELL (Min-Heap) limit orders with FIFO tie-breaking—zero DB locks.</p>
-      </div>
-      <div class="grid gap-6 lg:grid-cols-12">
-        <div class="space-y-3 lg:col-span-4">
-          <div class="grid grid-cols-2 gap-2">
-            <button id="ob-side-buy" type="button" class="rounded-lg bg-emerald-600 px-3 py-2 text-xs font-bold text-white">BUY (Bid)</button>
-            <button id="ob-side-sell" type="button" class="rounded-lg border border-[#2F2925] bg-[#221E1B] px-3 py-2 text-xs font-bold text-[#A8A29E]">SELL (Ask)</button>
-          </div>
-          <div>
-            <label for="ob-price" class="block text-xs font-medium text-[#A8A29E]">Limit Price (₹)</label>
-            <input id="ob-price" type="number" value="101" min="1" class="mt-1 w-full rounded-lg border border-[#2F2925] bg-[#110F0E] px-3 py-2 text-sm text-[#F5F2EE]">
-          </div>
-          <div>
-            <label for="ob-qty" class="block text-xs font-medium text-[#A8A29E]">Quantity</label>
-            <input id="ob-qty" type="number" value="10" min="1" class="mt-1 w-full rounded-lg border border-[#2F2925] bg-[#110F0E] px-3 py-2 text-sm text-[#F5F2EE]">
-          </div>
-          <button id="btn-place-order" type="button" class="copper-bg w-full rounded-lg px-4 py-2.5 text-sm font-bold text-[#110F0E]">Submit Order</button>
-        </div>
-        <div class="grid gap-4 sm:grid-cols-2 lg:col-span-8">
-          <div class="card-2 rounded-lg p-3.5">
-            <div class="mb-2 text-xs font-bold uppercase text-emerald-400">Open Bids (Max-Heap)</div>
-            <div id="ob-bids" class="space-y-1 text-xs font-mono"></div>
-            <div class="mb-2 mt-4 text-xs font-bold uppercase text-rose-400">Open Asks (Min-Heap)</div>
-            <div id="ob-asks" class="space-y-1 text-xs font-mono"></div>
-          </div>
-          <div class="card-2 rounded-lg p-3.5">
-            <div class="mb-2 text-xs font-bold uppercase copper-text">Executed Trade Tape</div>
-            <div id="ob-trades" class="max-h-48 space-y-1.5 overflow-y-auto text-xs font-mono text-[#F5F2EE]"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Flagship Commercial Product: PayShield -->
-  <section id="product" class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-    <div class="card rounded-2xl p-6 sm:p-8">
-      <div class="grid gap-8 lg:grid-cols-12 lg:items-center">
-        <div class="lg:col-span-7">
-          <div class="text-xs font-bold uppercase tracking-widest copper-text">Commercial Product In Active Build</div>
-          <h2 class="mt-1 text-2xl font-extrabold text-[#F5F2EE] sm:text-3xl">PayShield — Self-Hostable Payment Risk, Webhook Replay &amp; Reconciliation Guard</h2>
-          <p class="mt-3 text-sm leading-relaxed text-[#A8A29E]">
-            Built directly on my <strong class="text-[#F5F2EE]">FinCore-AI</strong> core engine. Growing Indian SaaS startups, D2C brands, and fintech teams lose real revenue to dropped payment webhooks, duplicate retry charges, and carding/velocity abuse—while enterprise tools cost $500–$2,000+/month. PayShield ships as a single Docker container or managed API with instant visibility.
+          <p class="mt-3 text-sm leading-relaxed text-[#5C5852]">
+            Self-hostable and cloud payment risk, webhook reliability, and fraud ML guard for startups and fintech teams. Combines O(1) sliding-window velocity limiting, ACID double-entry ledger, HMAC-SHA256 webhook Dead-Letter Queue replay, and real-time scikit-learn fraud scoring with PSI drift alerts.
           </p>
-          <div class="mt-5 grid gap-3 sm:grid-cols-3">
-            <div class="card-2 rounded-lg p-3.5">
-              <div class="text-xs font-bold copper-text">1. Fraud &amp; Velocity</div>
-              <p class="mt-1 text-xs text-[#A8A29E]">Real-time sliding-window velocity, geo-hop guard, and ML risk scoring before settlement.</p>
+        </article>
+
+        <!-- Product 2: OfferSniper AI -->
+        <article class="card rounded-xl p-6 transition hover:border-[#C5BCB0]">
+          <div class="flex flex-wrap items-start justify-between gap-3">
+            <div>
+              <div class="flex items-center gap-2.5">
+                <h3 class="text-lg font-semibold text-[#161514]">OfferSniper AI</h3>
+                <span class="rounded-full bg-[#F3F0EA] px-2.5 py-0.5 text-[11px] font-medium text-[#5C5852]">Web App &middot; Cloud Hosted</span>
+              </div>
+              <p class="mt-1 text-xs text-[#5C5852]">Python &middot; FastAPI &middot; Structured LLM Eval &middot; Next.js / Web UI</p>
             </div>
-            <div class="card-2 rounded-lg p-3.5">
-              <div class="text-xs font-bold copper-text">2. Webhook DLQ</div>
-              <p class="mt-1 text-xs text-[#A8A29E]">HMAC-verified delivery, exponential backoff, and 1-click Dead-Letter Queue replay for Razorpay/Stripe.</p>
-            </div>
-            <div class="card-2 rounded-lg p-3.5">
-              <div class="text-xs font-bold copper-text">3. Ledger Audit</div>
-              <p class="mt-1 text-xs text-[#A8A29E]">Idempotent double-entry ledger reconciliation with safe natural-language audit queries.</p>
+            <div class="flex flex-wrap gap-2">
+              <a href="https://github.com/radagastroigi" target="_blank" rel="noopener noreferrer" class="rounded-md border border-[#E5E0D8] bg-[#FAF9F6] px-3 py-1.5 text-xs font-medium text-[#161514] hover:border-[#A94D28]">GitHub &nearr;</a>
+              <button type="button" class="demo-btn rounded-md border border-[#E5E0D8] bg-white px-3 py-1.5 text-xs font-medium text-[#161514] hover:border-[#A94D28]" data-product="OfferSniper AI">Early Access &rarr;</button>
             </div>
           </div>
+          <p class="mt-3 text-sm leading-relaxed text-[#5C5852]">
+            Focused job-description gap analyzer and interview prep engine for software engineers. Maps exact JD skill gaps against your resume, generates concise outreach notes, and runs timed technical evaluation drills.
+          </p>
+        </article>
+
+        <!-- Product 3: QuickBill UPI -->
+        <article class="card rounded-xl p-6 transition hover:border-[#C5BCB0]">
+          <div class="flex flex-wrap items-start justify-between gap-3">
+            <div>
+              <div class="flex items-center gap-2.5">
+                <h3 class="text-lg font-semibold text-[#161514]">QuickBill UPI</h3>
+                <span class="rounded-full bg-[#F3F0EA] px-2.5 py-0.5 text-[11px] font-medium text-[#5C5852]">Mobile PWA &middot; Play Store Ready</span>
+              </div>
+              <p class="mt-1 text-xs text-[#5C5852]">Offline-First PWA &middot; Dynamic UPI QR &middot; GST PDF Receipts &middot; WhatsApp Share</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <a href="https://github.com/radagastroigi" target="_blank" rel="noopener noreferrer" class="rounded-md border border-[#E5E0D8] bg-[#FAF9F6] px-3 py-1.5 text-xs font-medium text-[#161514] hover:border-[#A94D28]">GitHub &nearr;</a>
+              <button type="button" class="demo-btn rounded-md border border-[#E5E0D8] bg-white px-3 py-1.5 text-xs font-medium text-[#161514] hover:border-[#A94D28]" data-product="QuickBill UPI">Early Access &rarr;</button>
+            </div>
+          </div>
+          <p class="mt-3 text-sm leading-relaxed text-[#5C5852]">
+            5-second mobile invoice and dynamic UPI payment QR generator built for Indian freelancers, tutors, and small businesses—works offline with 1-click PDF receipt export and WhatsApp sharing.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Engineering Craft: DSA, System Design & Case Studies -->
+    <section id="engineering" class="border-t border-[#E5E0D8] py-14">
+      <div class="mb-8">
+        <p class="text-xs font-semibold uppercase tracking-widest accent-text">Engineering Craft</p>
+        <h2 class="serif mt-2 text-2xl text-[#161514] sm:text-3xl">DSA &amp; Flagship System Design</h2>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-2">
+        <div class="card rounded-xl p-6">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base font-semibold text-[#161514]">Algorithms &amp; Problem Solving</h3>
+            <a href="https://leetcode.com/u/radagastroigi/" target="_blank" rel="noopener noreferrer" class="text-xs font-medium accent-text hover:underline">LeetCode &nearr;</a>
+          </div>
+          <p class="mt-2.5 text-sm leading-relaxed text-[#5C5852]">
+            Daily handcrafted practice across Arrays, Hashing, Two Pointers, Sliding Windows, Monotonic Stacks, Heaps, and Graphs in Python and C#—applying the exact same data structures directly inside production engines.
+          </p>
         </div>
-        <div class="card-2 rounded-xl p-5 lg:col-span-5">
-          <div class="text-xs font-bold uppercase tracking-wider text-[#A8A29E]">Commercial Model</div>
-          <ul class="mt-3 space-y-2.5 text-sm text-[#F5F2EE]">
-            <li class="flex justify-between border-b border-[#2F2925] pb-2">
-              <span>Open-Source Core (Docker)</span>
-              <span class="font-bold text-emerald-400">Free</span>
-            </li>
-            <li class="flex justify-between border-b border-[#2F2925] pb-2">
-              <span>PayShield Pro (SaaS / SMB)</span>
-              <span class="font-bold copper-text">₹1,999 / mo</span>
-            </li>
-            <li class="flex justify-between pb-1">
-              <span>Custom Fintech Integration</span>
-              <span class="font-bold copper-text">Project / Retainer</span>
-            </li>
+
+        <div class="card rounded-xl p-6">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base font-semibold text-[#161514]">Flagship Architecture Case Studies</h3>
+            <a href="https://www.linkedin.com/in/shiva-rakesh-s/" target="_blank" rel="noopener noreferrer" class="text-xs font-medium accent-text hover:underline">Write-ups &nearr;</a>
+          </div>
+          <ul class="mt-2.5 space-y-1.5 text-sm text-[#5C5852]">
+            <li><strong class="text-[#161514]">WhatsApp:</strong> Persistent WebSockets, Redis session registry &amp; offline inbox ACKs.</li>
+            <li><strong class="text-[#161514]">Netflix:</strong> AWS Control Plane vs. Open Connect ISP CDN &amp; HLS/DASH chunks.</li>
+            <li><strong class="text-[#161514]">IRCTC Tatkal:</strong> Atomic Redis DECR holds &amp; lazy TTL expiry rollbacks.</li>
+            <li><strong class="text-[#161514]">Zerodha Kite:</strong> Lock-free ring buffer, two-heap order book &amp; binary ticks.</li>
+            <li><strong class="text-[#161514]">Uber Dispatch:</strong> H3 hexagonal spatial indexing &amp; atomic driver locks.</li>
           </ul>
-          <button id="btn-request-pilot" type="button" class="copper-bg mt-5 w-full rounded-lg px-4 py-2.5 text-sm font-bold text-[#110F0E] transition">Request PayShield Pilot / Demo</button>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Industrial Experience -->
-  <section id="experience" class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-    <div class="mb-6">
-      <div class="text-xs font-bold uppercase tracking-widest copper-text">Production Track Record</div>
-      <h2 class="mt-1 text-2xl font-extrabold text-[#F5F2EE] sm:text-3xl">Industrial Experience</h2>
-    </div>
-    <div class="grid gap-5 md:grid-cols-2">
-      <div class="card rounded-xl p-6">
-        <div class="flex items-start justify-between gap-2">
-          <div>
-            <h3 class="text-lg font-bold text-[#F5F2EE]">Software Engineer</h3>
-            <div class="text-sm font-semibold copper-text">HCLTech &middot; Chennai</div>
-          </div>
-          <span class="rounded-md bg-[#221E1B] px-2.5 py-1 text-xs text-[#A8A29E]">Feb 2025 – Present</span>
+    <!-- Work Experience -->
+    <section id="experience" class="border-t border-[#E5E0D8] py-14">
+      <div class="grid gap-10 md:grid-cols-12">
+        <div class="md:col-span-4">
+          <p class="text-xs font-semibold uppercase tracking-widest accent-text">Experience</p>
+          <h2 class="serif mt-2 text-2xl text-[#161514]">What I've done</h2>
         </div>
-        <ul class="mt-4 list-disc space-y-2 pl-4 text-sm text-[#A8A29E]">
-          <li>Modernized enterprise C#/.NET backend services and ASP.NET Web APIs with stricter validation, cleaner service boundaries, and automated testing.</li>
-          <li>Built and containerized applied AI workflows using Python, LangGraph, Model Context Protocol (MCP), Docker, and AWS App Runner.</li>
-          <li>Diagnosed and tuned production SQL Server OLTP queries, blocking locks, and schema migrations.</li>
-        </ul>
-      </div>
-
-      <div class="card rounded-xl p-6">
-        <div class="flex items-start justify-between gap-2">
+        <div class="space-y-7 md:col-span-8">
           <div>
-            <h3 class="text-lg font-bold text-[#F5F2EE]">Backend Developer</h3>
-            <div class="text-sm font-semibold copper-text">ITGalax Solutions Pvt Ltd &middot; Chennai</div>
-          </div>
-          <span class="rounded-md bg-[#221E1B] px-2.5 py-1 text-xs text-[#A8A29E]">Jul 2023 – Feb 2025</span>
-        </div>
-        <ul class="mt-4 list-disc space-y-2 pl-4 text-sm text-[#A8A29E]">
-          <li>Engineered high-reliability financial and pension microservices in C#, ASP.NET Core (.NET 6 to .NET 8), gRPC, SQL Server, and MySQL.</li>
-          <li>Designed a flowchart-driven RBAC approval workflow engine enforcing strict audit integrity across sensitive financial state transitions.</li>
-          <li>Optimized SQL and LINQ queries for transactional reconciliation and operational reporting.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Industrial Resume Section -->
-  <section id="resume" class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-    <div class="mb-5 flex flex-wrap items-center justify-between gap-3 no-print">
-      <div>
-        <div class="text-xs font-bold uppercase tracking-widest copper-text">ATS-Ready Profile</div>
-        <h2 class="mt-1 text-2xl font-extrabold text-[#F5F2EE] sm:text-3xl">Industrial Resume</h2>
-      </div>
-      <div class="flex flex-wrap gap-2.5">
-        <button id="btn-print-resume" type="button" class="copper-bg rounded-lg px-4 py-2 text-xs font-bold text-[#110F0E] transition">Print / Save as PDF</button>
-        <button id="btn-copy-resume" type="button" class="rounded-lg border border-[#2F2925] bg-[#1A1715] px-4 py-2 text-xs font-semibold text-[#F5F2EE] hover:border-[#C87D55]">Copy Plain-Text Resume</button>
-      </div>
-    </div>
-
-    <div id="resume-card" class="card rounded-xl p-6 sm:p-8">
-      <div class="flex flex-col justify-between gap-2 border-b border-[#2F2925] pb-4 sm:flex-row sm:items-end">
-        <div>
-          <h3 class="text-2xl font-extrabold text-[#F5F2EE]">Shiva Rakesh S</h3>
-          <p class="text-sm text-[#A8A29E]">Backend &amp; Applied AI Systems Engineer &middot; Chennai, Tamil Nadu, India</p>
-        </div>
-        <div class="text-xs text-[#A8A29E] sm:text-right">
-          <div>monkthetics@gmail.com &middot; +91 6382332374</div>
-          <div>linkedin.com/in/shiva-rakesh-s &middot; github.com/radagastroigi</div>
-        </div>
-      </div>
-
-      <div class="mt-5 grid gap-6 md:grid-cols-12">
-        <div class="space-y-4 md:col-span-5">
-          <div>
-            <div class="text-xs font-bold uppercase tracking-wider copper-text">Core Stack</div>
-            <p class="mt-1.5 text-xs leading-relaxed text-[#A8A29E]"><strong class="text-[#F5F2EE]">Backend:</strong> C#, .NET 8, ASP.NET Core, Python, FastAPI, gRPC, REST APIs, Async Python</p>
-            <p class="mt-1 text-xs leading-relaxed text-[#A8A29E]"><strong class="text-[#F5F2EE]">Data &amp; AI:</strong> SQL Server (OLTP Tuning), MySQL, SQLite, scikit-learn, PyTorch, LangGraph, MCP, Hybrid RAG</p>
-            <p class="mt-1 text-xs leading-relaxed text-[#A8A29E]"><strong class="text-[#F5F2EE]">Infra:</strong> AWS (App Runner, Lambda, S3, SageMaker), Docker, Git, GitHub Actions, pytest</p>
-          </div>
-          <div>
-            <div class="text-xs font-bold uppercase tracking-wider copper-text">Education</div>
-            <p class="mt-1.5 text-xs font-semibold text-[#F5F2EE]">B.E. Computer Science &amp; Engineering</p>
-            <p class="text-xs text-[#A8A29E]">Velammal College of Engineering &amp; Technology &middot; CGPA: 8.7 / 10</p>
-          </div>
-          <div>
-            <div class="text-xs font-bold uppercase tracking-wider copper-text">Certifications</div>
-            <p class="mt-1.5 text-xs text-[#A8A29E]">Ed Donner AI Engineering Trilogy (Core ML/LLM, Agentic &amp; MCP, Production AWS MLOps) — Udemy</p>
-          </div>
-        </div>
-
-        <div class="space-y-4 md:col-span-7">
-          <div>
-            <div class="text-xs font-bold uppercase tracking-wider copper-text">Selected Systems Built</div>
-            <ul class="mt-2 list-disc space-y-1.5 pl-4 text-xs leading-relaxed text-[#A8A29E]">
-              <li><strong class="text-[#F5F2EE]">FinCore-AI &amp; PayShield (Open Source):</strong> 12+ module payment risk, O(1) velocity limiter, ACID double-entry ledger, HMAC webhook DLQ, circuit breaker, and NL-to-SQL firewall verified with pytest.</li>
-              <li><strong class="text-[#F5F2EE]">HCLTech (.NET + Applied AI):</strong> Modernized enterprise .NET backend APIs, tuned SQL Server OLTP workloads, and deployed containerized LangGraph/MCP workflows on AWS App Runner.</li>
-              <li><strong class="text-[#F5F2EE]">ITGalax (Financial Microservices):</strong> Built .NET 8 &amp; gRPC pension microservices and a rule-based RBAC approval workflow engine on SQL Server/MySQL.</li>
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="text-base font-semibold text-[#161514]">Software Engineer &mdash; HCLTech</h3>
+              <span class="text-xs text-[#5C5852]">Feb 2025 – Present &middot; Chennai</span>
+            </div>
+            <ul class="mt-2 list-disc space-y-1.5 pl-4 text-sm text-[#5C5852]">
+              <li>Modernized enterprise C#/.NET backend services and ASP.NET Web APIs for reliability, validation, and testability.</li>
+              <li>Built and containerized applied AI workflows with Python, LangGraph, MCP, Docker, and AWS App Runner.</li>
+              <li>Tuned production SQL Server OLTP queries, schema migrations, and blocking lock bottlenecks.</li>
             </ul>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Direct Contact Section -->
-  <section id="contact" class="mx-auto max-w-6xl px-4 pb-16 pt-10 sm:px-6">
-    <div class="grid gap-6 lg:grid-cols-12">
-      <div class="lg:col-span-5">
-        <div class="text-xs font-bold uppercase tracking-widest copper-text">Let's Talk</div>
-        <h2 class="mt-1 text-2xl font-extrabold text-[#F5F2EE] sm:text-3xl">Contact &amp; Inquiries</h2>
-        <p class="mt-2 text-sm text-[#A8A29E]">Reach out directly for Backend / AI Engineering interviews in Chennai, PayShield product demos, or technical consulting.</p>
-        <div class="mt-5 space-y-2.5 text-sm">
-          <a href="mailto:monkthetics@gmail.com" class="card flex items-center justify-between rounded-lg px-4 py-3 hover:border-[#C87D55]">
-            <span class="text-[#A8A29E]">Email</span>
-            <span class="font-semibold text-[#F5F2EE]">monkthetics@gmail.com</span>
-          </a>
-          <a href="tel:+916382332374" class="card flex items-center justify-between rounded-lg px-4 py-3 hover:border-[#C87D55]">
-            <span class="text-[#A8A29E]">Phone</span>
-            <span class="font-semibold text-[#F5F2EE]">+91 6382332374</span>
-          </a>
-          <a href="https://www.linkedin.com/in/shiva-rakesh-s/" target="_blank" rel="noopener noreferrer" class="card flex items-center justify-between rounded-lg px-4 py-3 hover:border-[#C87D55]">
-            <span class="text-[#A8A29E]">LinkedIn</span>
-            <span class="font-semibold text-[#E2A37E]">linkedin.com/in/shiva-rakesh-s &rarr;</span>
-          </a>
-          <a href="https://github.com/radagastroigi" target="_blank" rel="noopener noreferrer" class="card flex items-center justify-between rounded-lg px-4 py-3 hover:border-[#C87D55]">
-            <span class="text-[#A8A29E]">GitHub</span>
-            <span class="font-semibold text-[#E2A37E]">github.com/radagastroigi &rarr;</span>
-          </a>
-        </div>
-      </div>
-
-      <form id="contact-form" class="card rounded-xl p-6 lg:col-span-7">
-        <div class="grid gap-4 sm:grid-cols-2">
-          <div>
-            <label for="c-name" class="block text-xs font-medium text-[#A8A29E]">Your Name</label>
-            <input id="c-name" type="text" required placeholder="e.g. Priya / Engineering Manager" class="mt-1 w-full rounded-lg border border-[#2F2925] bg-[#110F0E] px-3 py-2 text-sm text-[#F5F2EE] focus:border-[#C87D55] focus:outline-none">
+          <div class="border-t border-[#E5E0D8] pt-6">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="text-base font-semibold text-[#161514]">Backend Developer &mdash; ITGalax Solutions Pvt Ltd</h3>
+              <span class="text-xs text-[#5C5852]">Jul 2023 – Feb 2025 &middot; Chennai</span>
+            </div>
+            <ul class="mt-2 list-disc space-y-1.5 pl-4 text-sm text-[#5C5852]">
+              <li>Engineered financial and pension microservices in C#, ASP.NET Core (.NET 6 &rarr; .NET 8), gRPC, SQL Server, and MySQL.</li>
+              <li>Designed a flowchart-driven RBAC approval workflow engine enforcing audit integrity across sensitive transactions.</li>
+            </ul>
           </div>
-          <div>
-            <label for="c-topic" class="block text-xs font-medium text-[#A8A29E]">Topic</label>
-            <select id="c-topic" class="mt-1 w-full rounded-lg border border-[#2F2925] bg-[#110F0E] px-3 py-2 text-sm text-[#F5F2EE] focus:border-[#C87D55] focus:outline-none">
-              <option value="Interview / Hiring Opportunity">Interview / Hiring Opportunity</option>
-              <option value="PayShield Commercial Demo / Pilot">PayShield Commercial Demo / Pilot</option>
-              <option value="Backend / AI Consulting Project">Backend / AI Consulting Project</option>
-            </select>
+
+          <div class="border-t border-[#E5E0D8] pt-6">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="text-base font-semibold text-[#161514]">B.E. Computer Science &amp; Engineering</h3>
+              <span class="text-xs text-[#5C5852]">Velammal CET &middot; 8.7 / 10 CGPA</span>
+            </div>
+            <p class="mt-1.5 text-sm text-[#5C5852]">
+              Built a Non-Invasive Optical PPG Health Monitor (Embedded C &amp; ATmega328P) estimating glucose (90% accuracy) and hemoglobin (90.9% accuracy).
+            </p>
           </div>
         </div>
-        <div class="mt-4">
-          <label for="c-msg" class="block text-xs font-medium text-[#A8A29E]">Message</label>
-          <textarea id="c-msg" rows="4" required placeholder="Share role details, team context, or product demo goals..." class="mt-1 w-full rounded-lg border border-[#2F2925] bg-[#110F0E] px-3 py-2 text-sm text-[#F5F2EE] focus:border-[#C87D55] focus:outline-none"></textarea>
-        </div>
-        <div class="mt-4 flex flex-wrap gap-3">
-          <button type="submit" class="copper-bg rounded-lg px-5 py-2.5 text-sm font-bold text-[#110F0E] transition">Open Pre-Filled Email</button>
-          <button id="btn-copy-inquiry" type="button" class="rounded-lg border border-[#2F2925] bg-[#221E1B] px-4 py-2.5 text-xs font-semibold text-[#F5F2EE] hover:border-[#C87D55]">Copy Message &amp; Email</button>
-        </div>
-      </form>
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <footer class="border-t border-[#2F2925] py-6 text-center text-xs text-[#A8A29E]">
-    Shiva Rakesh S &middot; Chennai, India &middot; Hosted on <span class="text-[#E2A37E]">radagastroigi.github.io</span>
+    <!-- About & Now -->
+    <section id="about" class="border-t border-[#E5E0D8] py-14">
+      <div class="grid gap-10 md:grid-cols-12">
+        <div class="md:col-span-4">
+          <p class="text-xs font-semibold uppercase tracking-widest accent-text">About &amp; Now</p>
+          <h2 class="serif mt-2 text-2xl text-[#161514]">Who I am</h2>
+        </div>
+        <div class="space-y-4 text-sm leading-relaxed text-[#5C5852] md:col-span-8">
+          <p>
+            I believe in calm, boring, focused daily execution—understanding how real systems work under the hood, shipping reliable v1 products quickly, and polishing them into lasting software.
+          </p>
+          <p>
+            <strong class="text-[#161514]">Right now:</strong> Hosting <strong class="text-[#161514]">PayShield</strong> as a live cloud SaaS, preparing <strong class="text-[#161514]">OfferSniper AI</strong> and <strong class="text-[#161514]">QuickBill UPI</strong> for public release, and interviewing for Backend and Applied AI/ML Engineer roles in Chennai.
+          </p>
+          <div class="soft-card rounded-xl p-4">
+            <div class="text-xs font-semibold uppercase tracking-wider text-[#161514]">Interests</div>
+            <p class="mt-1.5 text-sm text-[#5C5852]">
+              Payment &amp; distributed systems architecture, open-world engineering, nature documentaries, travel, classic Tamil music, and quiet offline life.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services & Contact -->
+    <section id="contact" class="border-t border-[#E5E0D8] py-14">
+      <div class="mb-8">
+        <p class="text-xs font-semibold uppercase tracking-widest accent-text">Services &amp; Contact</p>
+        <h2 class="serif mt-2 text-2xl text-[#161514] sm:text-3xl">Work with me</h2>
+      </div>
+
+      <div class="mb-8 grid gap-4 sm:grid-cols-3">
+        <div class="soft-card rounded-xl p-4">
+          <div class="text-sm font-semibold text-[#161514]">Backend &amp; API Systems</div>
+          <p class="mt-1 text-xs leading-relaxed text-[#5C5852]">.NET 8, Python/FastAPI, SQL Server tuning, and reliable microservice architecture.</p>
+        </div>
+        <div class="soft-card rounded-xl p-4">
+          <div class="text-sm font-semibold text-[#161514]">Payment Risk &amp; Webhooks</div>
+          <p class="mt-1 text-xs leading-relaxed text-[#5C5852]">Idempotent ledgers, velocity/fraud scoring, HMAC webhook delivery, and DLQ replay.</p>
+        </div>
+        <div class="soft-card rounded-xl p-4">
+          <div class="text-sm font-semibold text-[#161514]">Applied AI &amp; Agents</div>
+          <p class="mt-1 text-xs leading-relaxed text-[#5C5852]">Production RAG, LangGraph/MCP workflows, and safe NL-to-SQL enterprise tools.</p>
+        </div>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-12">
+        <div class="space-y-3 text-sm md:col-span-5">
+          <p class="text-[#5C5852]">Available for full-time Backend / AI roles in Chennai, SaaS product pilots, and focused engineering consulting.</p>
+          <div class="pt-2 space-y-1.5">
+            <div><a href="mailto:monkthetics@gmail.com" class="font-medium text-[#161514] underline underline-offset-4 hover:text-[#A94D28]">monkthetics@gmail.com</a></div>
+            <div><a href="tel:+916382332374" class="text-[#5C5852] hover:text-[#161514]">+91 6382332374</a></div>
+            <div class="flex flex-wrap gap-4 pt-2 text-xs font-medium text-[#5C5852]">
+              <a href="https://www.linkedin.com/in/shiva-rakesh-s/" target="_blank" rel="noopener noreferrer" class="hover:text-[#A94D28]">LinkedIn &nearr;</a>
+              <a href="https://github.com/radagastroigi" target="_blank" rel="noopener noreferrer" class="hover:text-[#A94D28]">GitHub &nearr;</a>
+              <a href="https://leetcode.com/u/radagastroigi/" target="_blank" rel="noopener noreferrer" class="hover:text-[#A94D28]">LeetCode &nearr;</a>
+              <a href="https://www.loom.com/share/41bde33a487442dfaca639692ed312cd" target="_blank" rel="noopener noreferrer" class="hover:text-[#A94D28]">60s Intro &nearr;</a>
+            </div>
+          </div>
+        </div>
+
+        <form id="contact-form" class="card rounded-xl p-6 md:col-span-7">
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label for="c-name" class="block text-xs font-medium text-[#5C5852]">Name</label>
+              <input id="c-name" type="text" required placeholder="Your name" class="mt-1 w-full rounded-lg border border-[#E5E0D8] bg-[#FAF9F6] px-3 py-2 text-sm text-[#161514] focus:border-[#A94D28] focus:outline-none">
+            </div>
+            <div>
+              <label for="c-topic" class="block text-xs font-medium text-[#5C5852]">Inquiry</label>
+              <select id="c-topic" class="mt-1 w-full rounded-lg border border-[#E5E0D8] bg-[#FAF9F6] px-3 py-2 text-sm text-[#161514] focus:border-[#A94D28] focus:outline-none">
+                <option value="Hiring / Interview">Hiring / Interview</option>
+                <option value="Product Demo / Early Access">Product Demo / Early Access</option>
+                <option value="Engineering Services / Consulting">Engineering Services / Consulting</option>
+              </select>
+            </div>
+          </div>
+          <div class="mt-4">
+            <label for="c-msg" class="block text-xs font-medium text-[#5C5852]">Message</label>
+            <textarea id="c-msg" rows="3" required placeholder="Share role, project, or product demo details..." class="mt-1 w-full rounded-lg border border-[#E5E0D8] bg-[#FAF9F6] px-3 py-2 text-sm text-[#161514] focus:border-[#A94D28] focus:outline-none"></textarea>
+          </div>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <button type="submit" class="accent-btn rounded-lg px-5 py-2 text-xs font-medium transition">Send via Email</button>
+            <button id="copy-email-btn" type="button" class="rounded-lg border border-[#E5E0D8] bg-[#FAF9F6] px-4 py-2 text-xs font-medium text-[#161514] hover:border-[#A94D28]">Copy Email</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-[#E5E0D8] py-6 text-center text-xs text-[#5C5852]">
+    Shiva Rakesh S &middot; Chennai, Tamil Nadu, India &middot; radagastroigi.github.io
   </footer>
 
   <script>
     (function () {
-      // Toast helper
-      const toastEl = document.getElementById('toast');
-      let toastTimer = null;
+      const toast = document.getElementById('toast');
+      let timer = null;
       function showToast(msg) {
-        toastEl.textContent = msg;
-        toastEl.classList.remove('hidden');
-        if (toastTimer) clearTimeout(toastTimer);
-        toastTimer = setTimeout(() => toastEl.classList.add('hidden'), 3200);
+        toast.textContent = msg;
+        toast.classList.remove('hidden');
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(() => toast.classList.add('hidden'), 3000);
       }
 
-      function copyText(text, successMsg) {
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileNav = document.getElementById('mobile-nav');
+      menuBtn.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+      document.querySelectorAll('.mobile-link').forEach(a => {
+        a.addEventListener('click', () => mobileNav.classList.add('hidden'));
+      });
+
+      document.querySelectorAll('.demo-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const prod = btn.dataset.product || 'PayShield';
+          document.getElementById('c-topic').value = 'Product Demo / Early Access';
+          document.getElementById('c-msg').value = `Hi Shiva, please share the live hosted demo link for ${prod}.`;
+          document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+          showToast(`Live hosted link for ${prod} will be linked once deployed — request pre-filled below.`);
+        });
+      });
+
+      document.getElementById('contact-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('c-name').value.trim();
+        const topic = document.getElementById('c-topic').value;
+        const msg = document.getElementById('c-msg').value.trim();
+        const subject = encodeURIComponent(`[${topic}] ${name}`);
+        const body = encodeURIComponent(`Hi Shiva,\n\n${msg}\n\n— ${name}`);
+        window.location.href = `mailto:monkthetics@gmail.com?subject=${subject}&body=${body}`;
+        showToast('Opening email client...');
+      });
+
+      document.getElementById('copy-email-btn').addEventListener('click', () => {
+        const email = 'monkthetics@gmail.com';
         if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).then(() => showToast(successMsg)).catch(() => fallbackCopy(text, successMsg));
+          navigator.clipboard.writeText(email).then(() => showToast('Copied monkthetics@gmail.com')).catch(() => fallbackCopy(email));
         } else {
-          fallbackCopy(text, successMsg);
+          fallbackCopy(email);
         }
-      }
-      function fallbackCopy(text, successMsg) {
+      });
+
+      function fallbackCopy(text) {
         const ta = document.createElement('textarea');
         ta.value = text;
         ta.style.position = 'fixed';
         ta.style.opacity = '0';
         document.body.appendChild(ta);
         ta.select();
-        try { document.execCommand('copy'); showToast(successMsg); } catch (e) { showToast('Copy failed—please select text manually.'); }
+        try { document.execCommand('copy'); showToast('Copied monkthetics@gmail.com'); } catch (err) { showToast(text); }
         document.body.removeChild(ta);
       }
-
-      // Mobile nav toggle
-      const mobileBtn = document.getElementById('mobile-menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-      document.querySelectorAll('.mobile-nav-link').forEach(link => {
-        link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-      });
-
-      // Demo tabs
-      const tabs = document.querySelectorAll('.demo-tab');
-      const panels = document.querySelectorAll('.demo-panel');
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          tabs.forEach(t => { t.classList.remove('tab-active'); t.classList.add('tab-inactive'); });
-          tab.classList.remove('tab-inactive');
-          tab.classList.add('tab-active');
-          panels.forEach(p => p.classList.add('hidden'));
-          const target = document.getElementById(tab.dataset.target);
-          if (target) target.classList.remove('hidden');
-        });
-      });
-
-      // --- DEMO 1: Fraud & Velocity Engine ---
-      const seenIdem = new Set();
-      function evaluateFraud() {
-        const userId = document.getElementById('f-user').value.trim() || 'usr_anon';
-        const idemKey = document.getElementById('f-idem').value.trim() || 'tx_default';
-        const amount = Math.max(0, Number(document.getElementById('f-amount').value) || 0);
-        const vel = Math.max(0, Number(document.getElementById('f-vel').value) || 0);
-        const distKm = Math.max(0, Number(document.getElementById('f-dist').value) || 0);
-        const mins = Math.max(1, Number(document.getElementById('f-mins').value) || 1);
-
-        const isDup = seenIdem.has(idemKey);
-        const speedKmh = Math.round((distKm / (mins / 60)) * 10) / 10;
-        const reasons = [];
-        let risk = 8;
-
-        if (amount > 50000) { risk += 28; reasons.push('HIGH_TICKET_AMOUNT'); }
-        else if (amount > 15000) { risk += 12; }
-        if (vel > 5) { risk += 45; reasons.push('SLIDING_WINDOW_VELOCITY_EXCEEDED'); }
-        else { risk += vel * 3; }
-        if (speedKmh > 900) { risk += 55; reasons.push('IMPOSSIBLE_TRAVEL_GT_900KMH'); }
-        risk = Math.min(99, risk);
-
-        let decision = 'APPROVED';
-        let badgeClass = 'bg-emerald-500/20 text-emerald-300';
-        if (isDup) {
-          decision = 'DUPLICATE_IDEMPOTENCY_HIT';
-          badgeClass = 'bg-amber-500/20 text-amber-300';
-        } else if (risk >= 65 || speedKmh > 900 || vel > 5) {
-          decision = 'BLOCKED_HIGH_RISK';
-          badgeClass = 'bg-rose-500/20 text-rose-300';
-        } else if (risk >= 35) {
-          decision = 'STEP_UP_OTP_REVIEW';
-          badgeClass = 'bg-amber-500/20 text-amber-300';
-        }
-        if (!isDup) seenIdem.add(idemKey);
-
-        const badge = document.getElementById('fraud-badge');
-        badge.textContent = decision;
-        badge.className = 'rounded-full px-3 py-0.5 text-xs font-bold ' + badgeClass;
-        document.getElementById('fraud-score').textContent = risk + ' / 100';
-        document.getElementById('fraud-speed').textContent = speedKmh + ' km/h';
-        document.getElementById('fraud-idem-status').textContent = isDup ? 'CACHED_DUP' : 'NEW_TX';
-        document.getElementById('fraud-idem-status').className = 'mt-0.5 text-sm font-bold ' + (isDup ? 'text-amber-300' : 'text-emerald-300');
-
-        const payload = {
-          endpoint: 'POST /api/v1/fraud/evaluate',
-          user_id: userId,
-          idempotency_key: idemKey,
-          decision: decision,
-          risk_score: risk,
-          velocity_60s: vel,
-          implied_speed_kmh: speedKmh,
-          triggered_rules: reasons.length ? reasons : ['ALL_CHECKS_PASSED']
-        };
-        document.getElementById('fraud-json').textContent = JSON.stringify(payload, null, 2);
-      }
-
-      document.getElementById('btn-eval-fraud').addEventListener('click', evaluateFraud);
-      document.getElementById('btn-reset-fraud').addEventListener('click', () => {
-        seenIdem.clear();
-        showToast('Idempotency cache cleared.');
-        evaluateFraud();
-      });
-      document.getElementById('preset-normal').addEventListener('click', () => {
-        document.getElementById('f-idem').value = 'tx_' + Math.floor(1000 + Math.random() * 9000);
-        document.getElementById('f-amount').value = 3200;
-        document.getElementById('f-vel').value = 1;
-        document.getElementById('f-dist').value = 4;
-        document.getElementById('f-mins').value = 25;
-        evaluateFraud();
-      });
-      document.getElementById('preset-velocity').addEventListener('click', () => {
-        document.getElementById('f-idem').value = 'tx_' + Math.floor(1000 + Math.random() * 9000);
-        document.getElementById('f-amount').value = 19500;
-        document.getElementById('f-vel').value = 9;
-        document.getElementById('f-dist').value = 2;
-        document.getElementById('f-mins').value = 1;
-        evaluateFraud();
-      });
-      document.getElementById('preset-geo').addEventListener('click', () => {
-        document.getElementById('f-idem').value = 'tx_' + Math.floor(1000 + Math.random() * 9000);
-        document.getElementById('f-amount').value = 64000;
-        document.getElementById('f-vel').value = 2;
-        document.getElementById('f-dist').value = 8210;
-        document.getElementById('f-mins').value = 10;
-        evaluateFraud();
-      });
-      evaluateFraud();
-
-      // --- DEMO 2: PayShield Webhook HMAC & DLQ ---
-      const dlqItems = [];
-      async function computeHmacHex(secret, message) {
-        if (window.crypto && window.crypto.subtle) {
-          const enc = new TextEncoder();
-          const key = await window.crypto.subtle.importKey('raw', enc.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
-          const sig = await window.crypto.subtle.sign('HMAC', key, enc.encode(message));
-          return Array.from(new Uint8Array(sig)).map(b => b.toString(16).padStart(2, '0')).join('');
-        }
-        let h = 2166136261;
-        const s = secret + ':' + message;
-        for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
-        return ('00000000' + (h >>> 0).toString(16)).slice(-8).repeat(8);
-      }
-
-      function renderDlq() {
-        document.getElementById('dlq-count').textContent = String(dlqItems.length);
-        const container = document.getElementById('dlq-list');
-        if (!dlqItems.length) {
-          container.textContent = 'No failed events in DLQ.';
-          return;
-        }
-        container.innerHTML = dlqItems.map(item =>
-          `<div class="mt-1.5 flex items-center justify-between rounded bg-[#110F0E] px-2.5 py-1.5 text-rose-300">
-            <span>${item.id} (3/3 attempts failed)</span>
-            <span class="text-[#A8A29E]">sig:${item.sig.slice(0, 10)}...</span>
-          </div>`
-        ).join('');
-      }
-
-      document.getElementById('btn-send-webhook').addEventListener('click', async () => {
-        const eventId = document.getElementById('wh-event-id').value.trim() || 'evt_demo';
-        const secret = document.getElementById('wh-secret').value.trim() || 'secret';
-        const mode = document.getElementById('wh-mode').value;
-        const now = Math.floor(Date.now() / 1000);
-        const ts = mode === 'replay' ? now - 420 : now;
-        const body = JSON.stringify({ event_id: eventId, amount_inr: 4999, status: 'captured' });
-        const sig = await computeHmacHex(secret, ts + '.' + body);
-        const badge = document.getElementById('wh-status-badge');
-        const lines = [
-          `X-PayShield-Timestamp: ${ts}`,
-          `X-PayShield-Signature: v1=${sig.slice(0, 32)}...`
-        ];
-
-        if (mode === 'replay') {
-          lines.push(`REJECTED: Timestamp drift ${now - ts}s > 300s tolerance (Replay Attack Blocked).`);
-          badge.textContent = 'REPLAY_BLOCKED';
-          badge.className = 'rounded-full bg-rose-500/20 px-2.5 py-0.5 text-xs font-bold text-rose-300';
-        } else if (mode === 'ok') {
-          lines.push('Attempt 1 -> HTTP 200 OK -> DELIVERED (Idempotency key stored).');
-          badge.textContent = 'DELIVERED';
-          badge.className = 'rounded-full bg-emerald-500/20 px-2.5 py-0.5 text-xs font-bold text-emerald-300';
-        } else if (mode === 'flaky') {
-          lines.push('Attempt 1 -> HTTP 502 -> scheduled retry in +2s');
-          lines.push('Attempt 2 -> HTTP 504 -> scheduled retry in +4s');
-          lines.push('Attempt 3 -> HTTP 200 OK -> DELIVERED via exponential backoff.');
-          badge.textContent = 'DELIVERED (RETRY #3)';
-          badge.className = 'rounded-full bg-emerald-500/20 px-2.5 py-0.5 text-xs font-bold text-emerald-300';
-        } else {
-          lines.push('Attempt 1 -> HTTP 503 -> retry in +2s');
-          lines.push('Attempt 2 -> HTTP 503 -> retry in +4s');
-          lines.push('Attempt 3 -> HTTP 503 -> max_retries hit -> MOVED TO DLQ.');
-          dlqItems.push({ id: eventId, sig: sig });
-          renderDlq();
-          badge.textContent = 'ROUTED_TO_DLQ';
-          badge.className = 'rounded-full bg-rose-500/20 px-2.5 py-0.5 text-xs font-bold text-rose-300';
-        }
-        document.getElementById('wh-trace').textContent = lines.join('\n');
-        document.getElementById('wh-event-id').value = 'evt_pay_' + Math.floor(10000 + Math.random() * 89999);
-      });
-
-      document.getElementById('btn-replay-dlq').addEventListener('click', () => {
-        if (!dlqItems.length) { showToast('DLQ is already empty.'); return; }
-        const count = dlqItems.length;
-        dlqItems.length = 0;
-        renderDlq();
-        document.getElementById('wh-trace').textContent = `Replayed ${count} DLQ event(s) -> All returned HTTP 200 OK -> Queue clean.`;
-        document.getElementById('wh-status-badge').textContent = 'DLQ_REPLAYED';
-        document.getElementById('wh-status-badge').className = 'rounded-full bg-emerald-500/20 px-2.5 py-0.5 text-xs font-bold text-emerald-300';
-        showToast(`Replayed ${count} DLQ event(s) successfully.`);
-      });
-
-      // --- DEMO 3: Limit Order Book ---
-      let obSide = 'BUY';
-      let obSeq = 1;
-      const bids = [{ price: 99, qty: 15, seq: obSeq++ }, { price: 98, qty: 20, seq: obSeq++ }];
-      const asks = [{ price: 101, qty: 12, seq: obSeq++ }, { price: 103, qty: 25, seq: obSeq++ }];
-      const trades = [];
-
-      function setObSide(side) {
-        obSide = side;
-        const buyBtn = document.getElementById('ob-side-buy');
-        const sellBtn = document.getElementById('ob-side-sell');
-        if (side === 'BUY') {
-          buyBtn.className = 'rounded-lg bg-emerald-600 px-3 py-2 text-xs font-bold text-white';
-          sellBtn.className = 'rounded-lg border border-[#2F2925] bg-[#221E1B] px-3 py-2 text-xs font-bold text-[#A8A29E]';
-        } else {
-          sellBtn.className = 'rounded-lg bg-rose-600 px-3 py-2 text-xs font-bold text-white';
-          buyBtn.className = 'rounded-lg border border-[#2F2925] bg-[#221E1B] px-3 py-2 text-xs font-bold text-[#A8A29E]';
-        }
-      }
-      document.getElementById('ob-side-buy').addEventListener('click', () => setObSide('BUY'));
-      document.getElementById('ob-side-sell').addEventListener('click', () => setObSide('SELL'));
-
-      function renderOrderBook() {
-        bids.sort((a, b) => b.price - a.price || a.seq - b.seq);
-        asks.sort((a, b) => a.price - b.price || a.seq - b.seq);
-        document.getElementById('ob-bids').innerHTML = bids.length
-          ? bids.map(b => `<div class="flex justify-between rounded bg-[#110F0E] px-2.5 py-1 text-emerald-300"><span>BID ₹${b.price}</span><span>qty ${b.qty}</span></div>`).join('')
-          : '<div class="text-[#A8A29E]">No open bids</div>';
-        document.getElementById('ob-asks').innerHTML = asks.length
-          ? asks.map(a => `<div class="flex justify-between rounded bg-[#110F0E] px-2.5 py-1 text-rose-300"><span>ASK ₹${a.price}</span><span>qty ${a.qty}</span></div>`).join('')
-          : '<div class="text-[#A8A29E]">No open asks</div>';
-        document.getElementById('ob-trades').innerHTML = trades.length
-          ? trades.slice().reverse().map(t => `<div class="rounded bg-[#110F0E] px-2.5 py-1.5">FILL ${t.qty} @ <span class="copper-text">₹${t.price}</span> (${t.aggressor})</div>`).join('')
-          : '<div class="text-[#A8A29E]">Submit a crossing order (e.g. BUY ₹101) to trigger a live match.</div>';
-      }
-
-      document.getElementById('btn-place-order').addEventListener('click', () => {
-        const price = Math.max(1, Number(document.getElementById('ob-price').value) || 100);
-        let qty = Math.max(1, Number(document.getElementById('ob-qty').value) || 1);
-        if (obSide === 'BUY') {
-          asks.sort((a, b) => a.price - b.price || a.seq - b.seq);
-          while (qty > 0 && asks.length && asks[0].price <= price) {
-            const best = asks[0];
-            const fill = Math.min(qty, best.qty);
-            trades.push({ price: best.price, qty: fill, aggressor: 'BUY' });
-            qty -= fill;
-            best.qty -= fill;
-            if (best.qty === 0) asks.shift();
-          }
-          if (qty > 0) bids.push({ price, qty, seq: obSeq++ });
-        } else {
-          bids.sort((a, b) => b.price - a.price || a.seq - b.seq);
-          while (qty > 0 && bids.length && bids[0].price >= price) {
-            const best = bids[0];
-            const fill = Math.min(qty, best.qty);
-            trades.push({ price: best.price, qty: fill, aggressor: 'SELL' });
-            qty -= fill;
-            best.qty -= fill;
-            if (best.qty === 0) bids.shift();
-          }
-          if (qty > 0) asks.push({ price, qty, seq: obSeq++ });
-        }
-        renderOrderBook();
-      });
-      renderOrderBook();
-
-      // --- Resume & Pilot CTA ---
-      document.getElementById('btn-print-resume').addEventListener('click', () => window.print());
-      document.getElementById('btn-copy-resume').addEventListener('click', () => {
-        const plain = [
-          'SHIVA RAKESH S | Chennai, India | +91 6382332374 | monkthetics@gmail.com | linkedin.com/in/shiva-rakesh-s',
-          'Backend & Applied AI Systems Engineer (3+ yrs: C#/.NET 8, Python, FastAPI, SQL Server, AWS, Docker)',
-          '- HCLTech (Feb 2025-Present): .NET API modernization, SQL Server OLTP tuning, Python/LangGraph/MCP/AWS App Runner workflows.',
-          '- ITGalax Solutions (Jul 2023-Feb 2025): .NET 8 & gRPC financial/pension microservices, RBAC approval workflow engine.',
-          '- FinCore-AI / PayShield: 12+ module payment risk, O(1) velocity limiter, ACID ledger, HMAC webhook DLQ, pytest.'
-        ].join('\n');
-        copyText(plain, 'Plain-text resume copied to clipboard.');
-      });
-
-      document.getElementById('btn-request-pilot').addEventListener('click', () => {
-        document.getElementById('c-topic').value = 'PayShield Commercial Demo / Pilot';
-        document.getElementById('c-msg').value = 'Hi Shiva, I would like to schedule a quick demo of PayShield for our payment/webhook workflow.';
-        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-        showToast('Pre-filled PayShield pilot inquiry below.');
-      });
-
-      // --- Contact Form ---
-      document.getElementById('contact-form').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const name = document.getElementById('c-name').value.trim();
-        const topic = document.getElementById('c-topic').value;
-        const msg = document.getElementById('c-msg').value.trim();
-        const subject = encodeURIComponent(`[Portfolio] ${topic} — ${name}`);
-        const body = encodeURIComponent(`Hi Shiva,\n\n${msg}\n\nBest,\n${name}`);
-        window.location.href = `mailto:monkthetics@gmail.com?subject=${subject}&body=${body}`;
-        showToast('Opening your email client with pre-filled message.');
-      });
-
-      document.getElementById('btn-copy-inquiry').addEventListener('click', () => {
-        const name = document.getElementById('c-name').value.trim() || 'Your Name';
-        const topic = document.getElementById('c-topic').value;
-        const msg = document.getElementById('c-msg').value.trim() || 'Hello Shiva, reaching out from your portfolio.';
-        copyText(`To: monkthetics@gmail.com\nSubject: ${topic}\n\nHi Shiva,\n${msg}\n\n— ${name}`, 'Email & message copied to clipboard.');
-      });
     })();
   </script>
 </body>
